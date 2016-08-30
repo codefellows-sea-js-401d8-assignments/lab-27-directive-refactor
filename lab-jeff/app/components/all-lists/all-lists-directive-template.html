@@ -1,0 +1,32 @@
+<div class="container" ng-controller="AllListsController as allListCtrl">
+
+  <form class="form-inline" ng-submit="allListCtrl.getAllLists()">
+    <button type="submit" class="button btn-primary"> Get All Lists </button>
+  </form>
+
+  <form class="form-inline" ng-submit="allListCtrl.deleteAllLists()">
+    <button type="submit" class="button btn-primary"> Delete All Lists </button>
+  </form>
+
+  <form class="form-inline" ng-submit="allListCtrl.createList(allListCtrl.list)">
+    <div class="form-group">
+      <label for="name"> Name: </label>
+      <input name="name" class="form-control" ng-model="allListCtrl.list.name">
+    </div>
+
+    <button type="submit" class="button btn-primary"> Add List </button>
+  </form>
+
+  <form class="form-inline" ng-submit="allListCtrl.deleteList(allListCtrl.list._id)">
+    <div class="form-group">
+      <label for="id"> List ID: </label>
+      <input name="id" class="form-control" ng-model="allListCtrl.list._id">
+    </div>
+    <button type="submit" class="button btn-primary"> Delete List </button>
+  </form>
+
+  <ul>
+    <li ng-repeat="list in allListCtrl.lists"> Name: {{ list.name }} | ID: {{ list._id }} </li>
+  </ul>
+
+</div>
