@@ -4,6 +4,7 @@ require('!!file?name=[name].[ext]!./html/index.html');
 require('./scss/base.scss');
 
 const angular = require('angular');
-angular.module('crudApp', []);
+const crudApp = angular.module('crudApp', []);
 
-require('./controller/crud-controller.js');
+require('./controllers')(crudApp);
+require('./components')(crudApp);

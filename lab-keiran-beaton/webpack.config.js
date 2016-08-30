@@ -4,14 +4,17 @@ const webpack = require('webpack');
 const ExtractText = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-const API_URL = JSON.stringify(process.env.APP_URL || 'http://localhost:3000');
+const apiURL = process.env.API_URL || 'http://localhost:3000';
 
-let plugins = [
+var plugins = [
   new ExtractText('bundle.css'),
-  new webpack.DefinePlugin({__API_URL__: API_URL})];
+  new webpack.DefinePlugin({
+    __API_URL__: JSON.stringify(apiURL),
+  })
+];
 
 module.exports = {
-  entry: `${__dirname}/app/entry.js`,
+  entry: `${__dirname}/app/`,
   plugins: plugins,
   output: {
     path: 'build',
@@ -23,8 +26,8 @@ module.exports = {
   postcss: function(){
     return [autoprefixer];
   },
-  module: {
-    loaders: [
+  module:{
+    loaders:[
       {
         test: /\.scss$/,
         loader: ExtractText.extract('style', 'css!postcss!sass!'),
@@ -34,16 +37,32 @@ module.exports = {
         loader: 'babel',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015']
-        }
+          presets: ['es2015'],
+        },
       },
       {
-        test: /\.(jpg|gif)$/,
-        loader: 'file?name=img/[hash]-[name].[ext]'
+        test: /\.html$/,
+        loader: 'html',
       },
       {
-        test: /\.(woff|svg|eot|ttf).*/,
-        loader: 'url?limit=10000&name=font/[name].[ext]'
+        test: /\.(jpg|gif|png)$/,
+        loader: 'file?name=img/[hash].[ext]'
+      },
+      {
+        test: /\.svg/,
+        loader:'url?limit=10000&mimetype=image/svg+xml&name=fonts/[name].[ext]',
+      },
+      {
+        test: /\.woff/,
+        loader: 'file?name=fonts/[name].[ext]',
+      },
+      {
+        test: /\.[ot]tf/,
+        loader: 'url?limit=10000&mimetype=application/octet-stream&name=fonts/[name].[ext]'
+      },
+      {
+        test: /\.eot/,
+        loader:'url?limit=10000&mimetype=application/vnd.ms-fontobject&name=fonts/[name].[ext]'
       }
     ]
   }
