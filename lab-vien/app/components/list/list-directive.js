@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (app) => {
+module.exports = function(app) {
   app.directive('naList', function() {
     return {
       restrict: 'EA',
