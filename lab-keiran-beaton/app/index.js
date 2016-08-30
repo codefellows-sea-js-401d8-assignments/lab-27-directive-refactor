@@ -6,5 +6,14 @@ require('./scss/base.scss');
 const angular = require('angular');
 const crudApp = angular.module('crudApp', []);
 
-require('./controllers')(crudApp);
+crudApp.run(['$rootScope', ($rs) => {
+  $rs.noteListUrl = `${__API_URL__}/api/list`;
+  $rs.noteHttpConfig = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept-Content': 'application/json'
+    }
+  };
+}]);
+
 require('./components')(crudApp);
