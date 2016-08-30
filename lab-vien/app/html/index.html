@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app="noteApp">
+  <head>
+    <title>Note App</title>
+    <link rel="stylesheet" href="bundle.css">
+    <script src="bundle.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <main na-list config="noteHttpConfig" base-url="{{noteUrl}}">
+      </main>
+    </div>
+  </body>
+</html>
