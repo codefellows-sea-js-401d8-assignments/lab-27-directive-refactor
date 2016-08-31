@@ -7,8 +7,9 @@ const angular = require('angular');
 const crudApp = angular.module('crudApp', []);
 
 crudApp.run(['$rootScope', ($rs) => {
-  $rs.noteListUrl = `${__API_URL__}/api/list`;
-  $rs.noteHttpConfig = {
+  $rs.listUrl = `${__API_URL__}/api/list`;
+  $rs.noteUrl = `${__API_URL__}/api/note`;
+  $rs.httpConfig = {
     headers: {
       'Content-Type': 'application/json',
       'Accept-Content': 'application/json'

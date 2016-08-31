@@ -6,6 +6,7 @@ module.exports = (app) => {
 
 function ListController($log, $http) {
   this.lists = [];
+  
   this.getAllLists = function() {
     $log.debug('listCtrl.getAllLists');
     $http.get(this.baseUrl, this.config)
