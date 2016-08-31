@@ -4,9 +4,10 @@
   <h1>Note Lists:</h1>
   <ul>
     <li ng-repeat-"list in listCtrl.lists">
+      <h3>{{list.name}}</h3>
+      <kb-list-item list="list"></kb-list-item>
       <span ng-if="!list.editing">
-        {{list.name}}
-        <button class="btn btn-default" ng-click="listCtrl.deleteList">Delete List</button>
+        <button class="btn btn-default" ng-click="listCtrl.deleteList(list)">Delete List</button>
         <button class="btn btn-default" ng-click="list.editing = true">Edit</button>
       </span>
       <kb-list-form save="listCtrl.updateList(list)" button-text="Update List" list="list" ng-if="list.editing">
