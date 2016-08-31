@@ -29,7 +29,7 @@ function ListController($log, $http) {
 
   this.updateList = function(list) {
     $log.debug('listCtrl.updateList');
-    $http.put(this.baseUrl + '/' + list._id, this.config)
+    $http.put(this.baseUrl + '/' + list._id, list, this.config)
       .then(res => {
         list.editing = false;
         $log.log('listCtrl.updateList res', res);

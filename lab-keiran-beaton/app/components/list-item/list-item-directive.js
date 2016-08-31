@@ -9,8 +9,8 @@ module.exports = function(app) {
       bindToController: true,
       scope: {
         title: '=',
-        text: '=',
-        save: '&'
+        content: '=',
+        listId: '='
       }
     };
   });
