@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.directive('kbListForm', function() {
     return {
       controller: 'ListFormController',
-      controllerAs: 'formCtrl',
+      controllerAs: 'lfCtrl',
       template: require('./list-form-template.html'),
       transclude: true,
       scope: {

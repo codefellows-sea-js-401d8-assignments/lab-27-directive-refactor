@@ -1,4 +1,11 @@
-<div ng-repeat="note in itemCtrl.list.notes">
-  <h4>{{note.name}}</h4>
-  <p>{{note.content}}</p>
+<div>
+  <kb-note-form note-button-text="Create Note" saveNote="noteCtrl.createNote(note)"></kb-note-form>
+  <h3>Notes:</h3>
+  <ul>
+    <li ng-repeat="note in noteCtrl.list.notes">
+      <h4>{{note.name}}</h4>
+      <p>{{note.content}}</p>
+      <button class="btn btn-default" ng-click="noteCtrl.deleteNote(note)" note="note">Delete Note</button>
+    </li>
+  </ul>
 </div>
