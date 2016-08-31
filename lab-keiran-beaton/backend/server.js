@@ -44,4 +44,5 @@ app.use(handleError);
 // start server
 app.listen(port, function(){
   debug(`server up :: ${port}`);
+  console.log('Server up on ' + port);
 });
