@@ -9,6 +9,7 @@ module.exports = function(app) {
       bindToController: true,
       scope: {
         baseUrl: '@',
+        noteUrl: '@',
         config: '='
       }
     };

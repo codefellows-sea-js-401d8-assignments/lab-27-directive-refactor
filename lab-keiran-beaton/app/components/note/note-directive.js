@@ -8,8 +8,9 @@ module.exports = function(app) {
       template: require('./note-template.html'),
       bindToController: true,
       scope: {
-        baseUrl: '@',
-        config: '='
+        noteUrl: '@',
+        config: '=',
+        list: '='
       }
     };
   });

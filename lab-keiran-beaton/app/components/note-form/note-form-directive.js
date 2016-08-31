@@ -10,7 +10,7 @@ module.exports = function(app) {
       scope: {
         noteButtonText: '@',
         saveNote: '&',
-        note: '='
+        note: '=',
       }
     };
   });

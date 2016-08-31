@@ -1,9 +1,9 @@
-<div ng-init="noteCtrl.getAllListNotes()">
-  <kb-note-form note-button-text="Create Note" saveNote="noteCtrl.createNote(note)"></kb-note-form>
-  <h3>Notes:</h3>
+<div ng-init="noteCtrl.getAllNotes()">
+  <h4>Notes:</h4>
+  <kb-note-form note-button-text="Create Note" save-note="noteCtrl.createNote(note)"></kb-note-form>
   <ul>
-    <li ng-repeat="note in noteCtrl.list.notes">
-      <h4>{{note.name}}</h4>
+    <li ng-repeat="note in noteCtrl.notes track by note._id" ng-if="note.listId = noteCtrl.list._id">
+      <h5>{{note.name}}</h5>
       <p>{{note.content}}</p>
       <span ng-if="!note.editing">
         <button class="btn btn-default" ng-click="noteCtrl.deleteNote(note)">Delete Note</button>
