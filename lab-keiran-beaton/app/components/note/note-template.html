@@ -2,14 +2,14 @@
   <h4>Notes:</h4>
   <kb-note-form note-button-text="Create Note" save-note="noteCtrl.createNote(note)"></kb-note-form>
   <ul>
-    <li ng-repeat="note in noteCtrl.notes track by note._id" ng-if="note.listId = noteCtrl.list._id">
+    <li ng-repeat="note in noteCtrl.notes">
       <h5>{{note.name}}</h5>
       <p>{{note.content}}</p>
       <span ng-if="!note.editing">
         <button class="btn btn-default" ng-click="noteCtrl.deleteNote(note)">Delete Note</button>
         <button class="btn btn-default" ng-click="note.editing = true">Edit Note</button>
       </span>
-      <kb-note-form saveNote="noteCtrl.updateNote(note)" note-button-text="Update Note" note="note" ng-if="note.editing">
+      <kb-note-form save-note="noteCtrl.updateNote(note)" note-button-text="Update Note" note="note" ng-if="note.editing">
         <button class="btn btn-default" ng-click="note.editing = false">Cancel</button>
       </kb-note-form>
     </li>

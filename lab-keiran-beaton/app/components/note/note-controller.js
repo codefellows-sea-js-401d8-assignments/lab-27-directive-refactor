@@ -3,29 +3,24 @@
 module.exports = (app) => {
   app.controller('NoteController', ['$log', '$http', '$scope', NoteController]);
 
-  function NoteController($log, $http, $scope) {
+  function NoteController($log, $http) {
     this.notes = [];
-
     this.getAllNotes = function() {
       $log.debug('noteCtrl.getAllNotes');
       $http.get(this.noteUrl, this.config)
         .then((res) => {
-          $log.log('noteCtrl.getAllNotes res', res);
-          this.notes = res.data;
+          $log.log('noteCtrl.getAllNotes res.data', res.data);
+          this.notes = res.data.filter((note) => {
+            if(note.listId === this.list._id) {
+              return note;
+            }
+          });
           $log.log('this.notes', this.notes);
         }, err => {
           $log.error('error in noteCtrl.getAllNotes', err);
         });
     };
 
-    this.matchNotes = function() {
-      $log.debug('noteCtrl.matchNotes');
-      this.notes.forEach(function(note) {
-        if(note.listId === $scope.list._id) {
-          $scope.list.notes.push(note);
-        }
-      });
-    };
 
     this.deleteNote = function(note) {
       $log.debug('noteCtrl.deleteNote');
@@ -50,8 +45,8 @@ module.exports = (app) => {
     };
 
     this.createNote = function(note) {
-      note.listId = $scope.list._id;
       $log.debug('noteCtrl.createNote');
+      note.listId = this.list._id;
       $http.post(this.noteUrl, note, this.config)
         .then(res => {
           $log.log('successfully created note', res.data);
