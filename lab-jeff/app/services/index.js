@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = (app) => {
-  require('./lists')(app);
+  require('./app-data')(app);
 };

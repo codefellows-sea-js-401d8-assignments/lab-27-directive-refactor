@@ -1,0 +1,28 @@
+<div class="container" ng-init="listsCtrl.getAllLists()">
+
+
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="name"> List name: </label>
+      <input name="name" class="form-control" ng-model="listsCtrl.list.name">
+    </div>
+
+    <button type="submit" class="button btn-primary" ng-click="listsCtrl.createList(listsCtrl.list)"> Add List </button>
+    <button type="submit" class="button btn-danger" onclick="return confirm('Delete all lists?'); return false;" ng-click="listsCtrl.deleteAllLists()">
+      Delete All Lists
+    </button>
+  </form>
+
+  <ul>
+    <li ng-repeat="list in listsCtrl.lists">
+      <span class="list fa fa-list">
+        List name: {{ list.name }}
+        <button type="button" class="listButton btn btn-default" ng-click="listsCtrl.deleteList(list._id)">
+          X
+        </button>
+        <div class="listNote" jg-list-notes-directive></div>
+      </span>
+    </li>
+  </ul>
+
+</div>

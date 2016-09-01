@@ -1,15 +1,13 @@
 'use strict';
 
 module.exports = (app) => {
-  app.controller('AllListsController', ['$log', '$http', AllListsController]);
+  app.controller('ListsController', ['$log', '$http', ListsController]);
 };
 
-function AllListsController($log, $http) {
-  let lc = this;
+function ListsController($log, $http) {
+  this.lists = [];
 
-  lc.lists = [];
-
-  let baseUrl = `${__API_URL__}/api/list/`;
+  let baseUrl = 'http://localhost:3000/api/list/';
   let config = {
     headers: {
       'Accept': 'application/json',
@@ -17,18 +15,18 @@ function AllListsController($log, $http) {
     },
   };
 
-  lc.deleteLocalList = function(listId){
-    lc.lists = lc.lists.filter((list) => {
+  this.deleteLocalList = function(listId){
+    this.lists = this.lists.filter((list) => {
       return list._id !== listId;
     });
   };
 
-  lc.getAllLists = function() {
+  this.getAllLists = function() {
     $http.get(baseUrl, config)
       .then((res) => {
         $log.log('Success!', res.data);
         res.data.forEach((list) => {
-          lc.lists.push(list);
+          this.lists.push(list);
         });
       })
       .catch((err) => {
@@ -36,33 +34,33 @@ function AllListsController($log, $http) {
       });
   };
 
-  lc.deleteAllLists = function() {
+  this.deleteAllLists = function() {
     $http.delete(baseUrl, config)
       .then((res) => {
         $log.log('Success!', res.data);
-        lc.lists = [];
+        this.lists = [];
       })
       .catch((err) => {
         return err;
       });
   };
 
-  lc.createList = function(listName) {
+  this.createList = function(listName) {
     $http.post(baseUrl, listName, config)
       .then((res) => {
         $log.log('Success!', res.data);
-        lc.lists.push(res.data);
+        this.lists.push(res.data);
       })
       .catch((err) => {
         return err;
       });
   };
 
-  lc.deleteList = function(listId) {
+  this.deleteList = function(listId) {
     $http.delete(baseUrl + listId, config)
       .then((res) => {
         $log.log('Success', res.data);
-        lc.deleteLocalList(listId);
+        this.deleteLocalList(listId);
       })
       .catch((err) => {
         return err;
