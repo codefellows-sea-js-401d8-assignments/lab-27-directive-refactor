@@ -6,7 +6,7 @@ module.exports = function(app) {
       restrict: 'EAC',
       template: require('./list-template.html'),
       controller: 'ListController',
-      controllerAs: 'list',
+      controllerAs: 'listCtrl',
       bindToController: true,
       scope: {}
     };
