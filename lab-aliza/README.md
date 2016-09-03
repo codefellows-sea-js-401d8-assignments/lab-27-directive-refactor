@@ -1,4 +1,4 @@
-# Aliza's Angular Controller CRUD Lab
+# Aliza's Refactor Lab
 
 ## Set up back-end:  
 1. `git clone https://github.com/codefellows-seattle-javascript-401n1/noteapp-backend.git`  
