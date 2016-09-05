@@ -7,8 +7,10 @@
   </head>
 
   <body>
-    <h1> NOTEPAD </h1>
-    <main ng-controller="ListController as listCtrl">
+    <main ng-view>
+      <!-- <h1> NOTEPAD </h1> -->
+      <list-directive></list-directive>
+    <!-- <main ng-controller="ListController as listCtrl">
       <form novalidate name="listForm" ng-submit="listCtrl.createList(listCtrl.list)">
         <button type="button" ng-click="listCtrl.getLists()">
           Get Lists
@@ -31,6 +33,7 @@
         <ol>
           <li ng-repeat="item in listCtrl.lists"> {{ item.name }}, {{ item._id }} </li>
         </ol>
-    </main>
+    </main> -->
+  </main>
   </body>
 </html>

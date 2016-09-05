@@ -7,7 +7,7 @@ listApp.controller('ListController', ['$log', '$http', ListController]);
 function ListController($log, $http) {
   $log.log('started list controller');
   this.lists = [];
-  let baseUrl = `${__API_URL__}/api/list`;
+  this.baseUrl = `${__API_URL__}/api/list`;
   let config = {
     headers: {
       'Accept': 'application/json',
@@ -17,7 +17,7 @@ function ListController($log, $http) {
 
   this.createList = function(list) {
     $log.debug('entered createImage function');
-    $http.post(baseUrl, list, config)
+    $http.post(this.baseUrl, list, config)
     .then((res) => {
       $log.log('res.data: ' + res.data);
       this.logList(res.data);
@@ -30,7 +30,7 @@ function ListController($log, $http) {
 
   this.getLists = function() {
     $log.debug('entered getLists function');
-    $http.get(baseUrl)
+    $http.get(this.baseUrl)
     .then((res) => {
       $log.log('res.data: ' + res.data);
       let array = res.data;
@@ -45,7 +45,7 @@ function ListController($log, $http) {
 
   this.removeList = function(listId) {
     $log.debug('entered removeList function');
-    $http.delete(baseUrl + '/' + listId)
+    $http.delete(this.baseUrl + '/' + listId)
     .then((res) => {
       $log.log('res.data: ' + res.data);
     })

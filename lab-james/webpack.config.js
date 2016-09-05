@@ -29,6 +29,10 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.html$/,
+        loader: 'html'
+      },
+      {
         test: /\.scss$/,
         loader: ExtractText.extract('style', 'css!postcss!sass!')
       },
