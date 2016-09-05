@@ -9,24 +9,38 @@ html, body {
 
 body {
   margin-left: 20px;
-  background-color: $app-accent;
+  background-color: $app-dark;
   color: $app-dark;
-  h1 {
+  h1, h2 {
     padding-top: 20px;
+    text-align: center;
+    color: white;
   }
+
   form {
-    width: 50%;
+    width: 80%;
     padding: 10px;
   }
-  ul {
-    border: 3px solid $app-dark;
-    border-radius: 15px;
+
+  .form-inline {
+    margin: 0 auto;
+    border-radius: 5px;
     background-color: $app-light;
     list-style-type: none;
-    width: 50%;
-    padding: 10px;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+  }
+
+  ul {
+    padding-left: 0;
     li {
-      padding: 5px;
+      border-radius: 5px;
+      background-color: $app-light;
+      list-style-type: none;
+      width: 80%;
+      margin: 10px auto;
+      padding: 15px;
       button {
         margin: 10px;
       }

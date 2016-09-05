@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="listApp">
+<html data-ng-app="listApp">
   <head>
     <title> Note App </title>
     <link rel="stylesheet" href="bundle.css">
     <script src="bundle.js"></script>
   </head>
   <body>
+    <h1> Note Application </h1>
     <main data-ap-list-directive config="noteHttpConfig" base-url="{{noteListUrl}}">
     </main>
   </body>

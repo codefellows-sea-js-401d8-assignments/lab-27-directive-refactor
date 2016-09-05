@@ -1,17 +1,18 @@
-<div ng-init="listCtrl.getAllLists()">
-  <ap-form-directive button-text="Submit" save="listCtrl.createList(list)">
-  </ap-form-directive>
-  <h1>Saved Notes: </h1>
+<div data-ng-init="listCtrl.getAllLists()">
+  <data-ap-form-directive button-text="Submit" save="listCtrl.createList(list)">
+  </data-ap-form-directive>
+  <h2>Saved Notes: </h2>
   <ul>
-    <li ng-repeat="list in listCtrl.lists">
-      <span ng-if="!list.editing">
+    <li data-ng-repeat="list in listCtrl.lists">
+      <span data-ng-if="!list.editing">
         {{list.name}}
-        <button class="btn btn-danger btn-default" ng-click="listCtrl.destroyList(list)"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
-        <button class="btn btn-default btn-warning" ng-click="list.editing = true"><i class="fa fa-pencil-square-o fa-lg"></i> Edit</button>
+        <br>
+        <button class="btn btn-default btn-warning" data-ng-click="list.editing = true"><i class="fa fa-pencil-square-o fa-lg"></i> Edit</button>
+        <button class="btn btn-danger btn-default" data-ng-click="listCtrl.destroyList(list)"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
       </span>
-      <ap-form-directive save="listCtrl.updateList(list)" button-text="Update" list="list" ng-if="list.editing">
-        <button class="btn btn-default btn-info" ng-click="list.editing = false"><i class="fa fa-remove fa-lg"></i> Cancel</button>
-      </ap-form-directive>
+      <div data-ap-form-directive save="listCtrl.updateList(list)" button-text="Update" list="list" data-ng-if="list.editing">
+        <button class="btn btn-default btn-info" data-ng-click="list.editing = false"><i class="fa fa-remove fa-lg"></i> Cancel</button>
+      </div>
     </li>
   </ul>
 </div>
