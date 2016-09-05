@@ -1,14 +1,17 @@
 'use strict';
 
-module.exports = function(app) {
+module.exports = (app) => {
   app.directive('apFormDirective', function() {
     return {
-      restrict: 'EAC',
+      controller: 'FormController',
+      controllerAs: 'ctrl',
       template: require('./form-template.html'),
-      controller: 'ListController',
-      controllerAs: 'listCtrl',
-      bindToController: true,
-      scope: {}
+      transclude: true,
+      scope: {
+        buttonText: '@',
+        save: '&',
+        list: '='
+      }
     };
   });
 };

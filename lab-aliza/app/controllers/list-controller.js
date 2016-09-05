@@ -1,15 +1,42 @@
 'use strict';
 
-const angular = require('angular');
-const listApp = angular.module('listApp');
+module.exports = (app) => {
+  app.controller('ListController', ['$log', '$http', ListController]);
+};
 
-listApp.controller('ListController', ['$log', '$http', ListController]);
-
-function ListController($log, $http){
+function ListController($log, $http) {
   this.lists = [];
+  this.getAllLists = function() {
+    $http.get(this.baseUrl, this.config)
+      .then(res => {
+        this.lists = res.data;
+      }, err => {
+        $log.error('error!', err);
+      });
+  };
+
+  this.destroyList = function(list) {
+    $log.debug('listCtrl.destroyList');
+    $http.delete(this.baseUrl + '/' + list._id, this.config)
+      .then(res => {
+        $log.log('success!', res.data);
+        this.lists.splice(this.lists.indexOf(list), 1);
+      }, err => {
+        $log.error('error!', err);
+      });
+  };
+
+  this.updateList = function(list) {
+    $http.put(this.baseUrl + '/' + list._id, list, this.config)
+      .then(res => {
+        $log.log('success!', res.data);
+        list.editing = false;
+      }, err => {
+        $log.error('error!', err);
+      });
+  };
 
   this.createList = function(list){
-    $log.debug('listCtrl.createList');
     $http.post(this.baseUrl, list, this.config)
       .then(res => {
         $log.log('Success!', res.data);
@@ -21,31 +48,4 @@ function ListController($log, $http){
       });
   };
 
-  this.destroyList = function(id){
-    $http.delete(this.baseUrl + '/' + id, this.config)
-      .then(res => {
-        let index = this.lists.findIndex((item)=>{
-          return item._id === id;
-        });
-        this.lists.splice(index, 1);
-        $log.log('Success!', res.data);
-        $log.log('this.lists', this.lists);
-      })
-      .catch(err => {
-        $log.log('Error: ', err);
-      });
-  };
-
-  this.getLists = function() {
-    $http.get(this.baseUrl, this.config)
-      .then((res) => {
-        $log.log('Success!', res.data);
-        res.data.forEach((list) => {
-          this.lists.push(list);
-        });
-      })
-      .catch((err) => {
-        $log.log('Error: ', err);
-      });
-  };
 }

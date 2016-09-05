@@ -16,5 +16,5 @@ listApp.run(['$rootScope', ($rs) => {
   };
 }]);
 
-require('./controllers');
-require('./components');
+require('./components')(listApp);
+require('./controllers')(listApp);

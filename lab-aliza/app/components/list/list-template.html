@@ -1,3 +1,17 @@
-<ul data-ng-init="listCtrl.getLists()">
- <li data-ng-repeat="item in listCtrl.lists"><button type="submit" class="btn btn-danger btn-default" ng-click="listCtrl.destroyList(item._id)"><i class="fa fa-trash-o fa-lg"></i>Delete</a></button>{{item.name}}</li>
-</ul>
+<div ng-init="listCtrl.getAllLists()">
+  <ap-form-directive button-text="Submit" save="listCtrl.createList(list)">
+  </ap-form-directive>
+  <h1>Saved Notes: </h1>
+  <ul>
+    <li ng-repeat="list in listCtrl.lists">
+      <span ng-if="!list.editing">
+        {{list.name}}
+        <button class="btn btn-danger btn-default" ng-click="listCtrl.destroyList(list)"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
+        <button class="btn btn-default btn-warning" ng-click="list.editing = true"><i class="fa fa-pencil-square-o fa-lg"></i> Edit</button>
+      </span>
+      <ap-form-directive save="listCtrl.updateList(list)" button-text="Update" list="list" ng-if="list.editing">
+        <button class="btn btn-default btn-info" ng-click="list.editing = false"><i class="fa fa-remove fa-lg"></i> Cancel</button>
+      </ap-form-directive>
+    </li>
+  </ul>
+</div>
