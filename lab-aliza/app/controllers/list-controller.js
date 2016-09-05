@@ -7,17 +7,10 @@ listApp.controller('ListController', ['$log', '$http', ListController]);
 
 function ListController($log, $http){
   this.lists = [];
-  let baseUrl = `${__API_URL__}/api/list`;
-  let config = {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
-  };
 
   this.createList = function(list){
     $log.debug('listCtrl.createList');
-    $http.post(baseUrl, list, config)
+    $http.post(this.baseUrl, list, this.config)
       .then(res => {
         $log.log('Success!', res.data);
         this.lists.push(res.data);
@@ -29,7 +22,7 @@ function ListController($log, $http){
   };
 
   this.destroyList = function(id){
-    $http.delete(baseUrl + '/' + id, config)
+    $http.delete(this.baseUrl + '/' + id, this.config)
       .then(res => {
         let index = this.lists.findIndex((item)=>{
           return item._id === id;
@@ -44,7 +37,7 @@ function ListController($log, $http){
   };
 
   this.getLists = function() {
-    $http.get(baseUrl, config)
+    $http.get(this.baseUrl, this.config)
       .then((res) => {
         $log.log('Success!', res.data);
         res.data.forEach((list) => {

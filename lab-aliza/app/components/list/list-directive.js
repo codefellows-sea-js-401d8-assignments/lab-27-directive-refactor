@@ -8,7 +8,10 @@ module.exports = function(app) {
       controller: 'ListController',
       controllerAs: 'listCtrl',
       bindToController: true,
-      scope: {}
+      scope: {
+        baseUrl: '@',
+        config: '='
+      }
     };
   });
 };

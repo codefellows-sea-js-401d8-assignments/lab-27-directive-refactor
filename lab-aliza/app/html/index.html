@@ -1,24 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="listApp">
+<html ng-app="listApp">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>List App</title>
-    <script src="bundle.js"></script>
+    <title> listApp </title>
     <link rel="stylesheet" href="bundle.css">
+    <script src="bundle.js"></script>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-default">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#/">Note App</a>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main data-ng-view>
+    <main cf-list config="noteHttpConfig" base-url="{{noteListUrl}}">
+    </main>
+      <h1>Note App</h1>
     </main>
   </body>
 </html>

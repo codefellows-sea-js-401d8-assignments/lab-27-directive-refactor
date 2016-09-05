@@ -4,7 +4,17 @@ require('!!file?name=[name].[ext]!./html/index.html');
 require('./scss/base.scss');
 
 const angular = require('angular');
-var app = angular.module('listApp', []);
+let listApp = angular.module('listApp', []);
 
-require('./components')(app);
-require('./controllers')(app);
+listApp.run(['$rootScope', ($rs) => {
+  $rs.noteListUrl = `${__API_URL__}/api/list`;
+  $rs.noteHttpConfig = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept-Content': 'application/json'
+    }
+  };
+}]);
+
+require('./controllers');
+require('./components');
