@@ -58,4 +58,16 @@ function ListController($log, $http) {
       });
   };
 
+  this.createItem = function(item){
+    $http.post(baseUrl, item, config)
+      .then(res => {
+        $log.log('Success: ', res.data);
+        this.lists.push(res.data);
+        $log.log('this.lists.notes: ', this.lists.notes);
+      })
+      .catch(err => {
+        $log.log('Error: ', err);
+      });
+  };
+
 }
