@@ -70,6 +70,11 @@ ListService.prototype = {
     return this.$q((resolve, reject) => {
       this.$http.put(endpoint, listData, this.httpConfig)
         .then(res => {
+          this.lists.forEach(list => {
+            if (list._id === listId) {
+              list.name = listData.name;
+            }
+          });
           this.$log.debug(`PUT ${endpoint} succeeded`);
           resolve(res.data);
         })

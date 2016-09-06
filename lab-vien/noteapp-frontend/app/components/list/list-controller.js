@@ -11,6 +11,13 @@ function ListController($log, listService, noteService) {
 }
 
 ListController.prototype = {
+  updateList: function(listData) {
+    this.listService.updateList(this.list._id, listData)
+      // .then(this.list.name = listData.name)
+      .then(list => console.log(`updated to ${list.name}`))
+      .catch(err => console.log(err));
+  },
+
   deleteList: function() {
     this.listService.deleteList(this.list._id)
       .then(list => console.log(`deleted ${list.name}`))
@@ -22,6 +29,20 @@ ListController.prototype = {
     this.noteService.createNote(noteData)
       .then(note => this.list.notes.push(note))
       .catch(err => console.log(err));
+  },
+
+  updateNote: function(noteId, noteData) {
+    // console.log(noteIdAndData);
+    // let noteId = noteIdAndData.noteId;
+    // let updateData = noteIdAndData.noteData;
+    this.noteService.updateNote(noteId, noteData)
+      .then(note => {
+        this.list.notes.forEach((item, idx) => {
+          if (item._id === noteId) {
+            this.list.notes[idx] = note;
+          }
+        });
+      });
   },
 
   deleteNote: function(noteId) {

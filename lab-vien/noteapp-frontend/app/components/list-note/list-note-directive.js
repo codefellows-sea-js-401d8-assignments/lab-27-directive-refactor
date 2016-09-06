@@ -6,6 +6,7 @@ module.exports = function(app) {
     template: require('./list-note.html'),
     bindings: {
       note: '=',
+      updateNote: '&',
       deleteNote: '&',
     },
   });

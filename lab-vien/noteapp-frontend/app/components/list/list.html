@@ -1,10 +1,17 @@
 <div>
   <div>
     <h3>{{$ctrl.list.name}}</h3>
-    <button class="btn btn-default" data-ng-click="$ctrl.deleteList()">x</button>
+    <form class="form-inline novalidate" ng-submit="$ctrl.updateList(list)">
+      <div class="form-group">
+        <label for="name">List Name</label>
+        <input type="text" name="name" ng-model="list.name" required>
+        <button class="btn btn-default" type="submit">Update</button>
+        <button class="btn btn-default" data-ng-click="$ctrl.deleteList()">x</button>
+      </div>
+    </form>
   </div>
 
-  <div class="panel-body">
+  <div>
     <form class="form-inline novalidate"
       ng-submit="$ctrl.createNote(note)">
 
@@ -19,9 +26,13 @@
       <button class="btn btn-default" type="submit">+</button>
     </form>
 
-    <ul>
-      <li ng-repeat="note in $ctrl.list.notes">
-        <na-list-note note="note" delete-note="$ctrl.deleteNote(noteId)"></na-list-note>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="note in $ctrl.list.notes">
+        <na-list-note
+        note="note"
+        update-note="$ctrl.updateNote(noteId, noteData)"
+        delete-note="$ctrl.deleteNote(noteId)">
+        </na-list-note>
       </li>
     </ul>
   </div>
