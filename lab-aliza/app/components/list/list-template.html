@@ -7,6 +7,13 @@
       <span data-ng-if="!list.editing">
         {{list.name}}
         <br>
+        <button class="btn btn-default btn-primary" data-ng-click="note.addNote = true" ng-hide="note.addNote"><i class="fa fa-plus fa-lg"></i> Add Note</button>
+        <div class="form-group" ng-show="note.addNote">
+          <label for="note" class="new-note"> New Note:  </label>
+          <input name="note" class="form-control" data-ng-model="noteCtrl.note">
+          <button class="btn btn-default" data-ng-click="note.createNote(note)"><i class="fa fa-plus fa-lg"></i> Add Note:</button>
+          <button class="btn btn-default" data-ng-click="note.addNote = false"><i class="fa fa-remove fa-lg"></i> Done</button>
+        </div>
         <button class="btn btn-default btn-warning" data-ng-click="list.editing = true"><i class="fa fa-pencil-square-o fa-lg"></i> Edit</button>
         <button class="btn btn-danger btn-default" data-ng-click="listCtrl.destroyList(list)"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
       </span>

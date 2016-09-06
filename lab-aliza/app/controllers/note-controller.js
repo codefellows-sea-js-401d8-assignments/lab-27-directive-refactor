@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = (app) => {
-  app.controller('ListController', ['$log', '$http', ListController]);
+  app.controller('NoteController', ['$log', '$http', NoteController]);
 };
 
-function ListController($log, $http) {
+function NoteController($log, $http) {
 
-  let baseUrl = `${__API_URL__}/api/list`;
+  let baseUrl = `${__API_URL__}/api/note`;
   let config = {
     headers: {
       'Accept': 'application/json',
@@ -14,44 +14,45 @@ function ListController($log, $http) {
     }
   };
 
-  this.lists = [];
-  this.getAllLists = function() {
+  this.notes = [];
+  this.getAllNotes = function() {
     $http.get(baseUrl, config)
       .then(res => {
         $log.log('Success: ', res.data);
-        this.lists = res.data;
+        this.notes = res.data;
       }, err => {
         $log.error('Error: ', err);
       });
   };
 
-  this.destroyList = function(list) {
-    $log.debug('listCtrl.destroyList');
-    $http.delete(baseUrl + '/' + list._id, config)
+  this.destroyNote = function(note) {
+    $log.debug('noteCtrl.destroyNote');
+    $http.delete(baseUrl + '/' + note._id, config)
       .then(res => {
         $log.log('Success: ', res.data);
-        this.lists.splice(this.lists.indexOf(list), 1);
+        this.notes.splice(this.notes.indexOf(note), 1);
       }, err => {
         $log.error('Error: ', err);
       });
   };
 
-  this.updateList = function(list) {
-    $http.put(baseUrl + '/' + list._id, list, config)
+  this.updateNote = function(note) {
+    $http.put(baseUrl + '/' + note._id, note, config)
       .then(res => {
         $log.log('Success: ', res.data);
-        list.editing = false;
+        note.editing = false;
       }, err => {
         $log.error('Error: ', err);
       });
   };
 
-  this.createList = function(list){
-    $http.post(baseUrl, list, config)
+  this.createNote = function(note){
+    $http.post(baseUrl, note, config)
       .then(res => {
         $log.log('Success: ', res.data);
-        this.lists.push(res.data);
-        $log.log('this.lists: ', this.lists);
+        note.addNote = false;
+        this.notes.push(res.data);
+        $log.log('this.notes: ', this.notes);
       })
       .catch(err => {
         $log.log('Error: ', err);

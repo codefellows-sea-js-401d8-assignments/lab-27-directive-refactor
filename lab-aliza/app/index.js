@@ -8,3 +8,4 @@ let listApp = angular.module('listApp', []);
 
 require('./components')(listApp);
 require('./controllers')(listApp);
+// require('./services')(listApp);

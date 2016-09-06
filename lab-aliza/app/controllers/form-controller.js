@@ -6,7 +6,7 @@ module.exports = (app) => {
     this.save = $scope.save;
     this.buttonText = $scope.buttonText;
     this.saveAndNull = () => {
-      this.save({list: this.list});
+      this.save({list: this.list });
       if (!$scope.list) this.list = null;
     };
   }]);
