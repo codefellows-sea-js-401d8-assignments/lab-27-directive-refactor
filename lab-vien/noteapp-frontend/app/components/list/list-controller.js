@@ -32,9 +32,6 @@ ListController.prototype = {
   },
 
   updateNote: function(noteId, noteData) {
-    // console.log(noteIdAndData);
-    // let noteId = noteIdAndData.noteId;
-    // let updateData = noteIdAndData.noteData;
     this.noteService.updateNote(noteId, noteData)
       .then(note => {
         this.list.notes.forEach((item, idx) => {
