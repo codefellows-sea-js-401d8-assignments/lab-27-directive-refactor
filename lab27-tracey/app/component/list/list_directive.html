@@ -1,3 +1,9 @@
-<div>
-  
+<div ng-init="listCtrl.getAll()">
+  <form-directive button-text="Create List" save="listCtrl.createLIst(list)"></form-directive>
+
+  <ul>
+    <li ng-repeat="item in listCtrl.lists"><button type="submit" ng-click="listCtrl.deleteList(item._id)">Remove</button>
+      {{item.name}}
+    </li>
+  </ul>
 </div>
