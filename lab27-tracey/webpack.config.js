@@ -41,6 +41,11 @@ module.exports = {
         }
       },
       {
+        test: /\.html$/,
+        loader: 'html',
+        exclude: 'node_modules'
+      },
+      {
         test: /\.(jpg|gif)$/,
         loader: 'file?name=image/[hash]-[name].[ext]'
       },
