@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(app) {
+module.exports = (app) => {
   app.directive('kbNote', function() {
     return {
       controller: 'NoteController',

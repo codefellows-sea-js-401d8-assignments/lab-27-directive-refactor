@@ -12,7 +12,7 @@ crudApp.run(['$rootScope', ($rs) => {
   $rs.httpConfig = {
     headers: {
       'Content-Type': 'application/json',
-      'Accept-Content': 'application/json'
+      'Accept': 'application/json'
     }
   };
 }]);

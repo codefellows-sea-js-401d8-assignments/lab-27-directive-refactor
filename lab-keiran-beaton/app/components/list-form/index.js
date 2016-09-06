@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(app) {
+module.exports = (app) => {
   require('./list-form-controller')(app);
   require('./list-form-directive')(app);
 };

@@ -46,7 +46,7 @@ function ListController($log, $http) {
         $log.log('successfully created list', res.data);
         this.lists.push(res.data);
       })
-      .catch(err => {
+      .catch((err) => {
         $log.error('error in listCtrl.createList', err);
       });
   };

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(app) {
+module.exports = (app) => {
   require('./note-form-controller')(app);
   require('./note-form-directive')(app);
 };

@@ -1,4 +1,4 @@
-# Lab-22 crud-controller
+# Lab-27 directive-refactor
 
 ## Getting started
 
@@ -12,7 +12,10 @@ In another command line window, run `node backend/server` to start the server
 
 Go to localhost:8080 to see the app
 to create a list, type the name into the name: input and click create list
-To delete a list, type the id of one of the created lists into the id: input and click delete list
+To delete a list, click the delete button at the bottom of the list.
+
+To create a note, fill in the inputs in the note creation form on a list and click create note.
+To delete a note, click the delete button under the note.
 
 ##Testing
 

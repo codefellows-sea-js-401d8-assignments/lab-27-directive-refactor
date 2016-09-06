@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(app) {
+module.exports = (app) => {
   app.controller('NoteFormController', ['$scope', '$log', function($scope, $log) {
     this.note = $scope.note || {};
     this.saveNote = $scope.saveNote;

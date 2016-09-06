@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(app) {
+module.exports = (app) => {
   app.directive('kbList', function() {
     return {
       controller: 'ListController',
