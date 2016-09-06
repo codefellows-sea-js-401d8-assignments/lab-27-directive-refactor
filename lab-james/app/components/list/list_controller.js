@@ -15,10 +15,9 @@ module.exports = function(app) {
       $log.log('getLists function');
       $http.get(this.baseUrl)
         .then((res) => {
-          $log.log('res data: ' + res.data);
           let array = res.data;
           array.forEach((index) => {
-            this.logList(index);
+            this.lists.push(index);
           });
         })
         .catch((err) => {
@@ -30,9 +29,8 @@ module.exports = function(app) {
       $log.log('createList function');
       $http.post(this.baseUrl, list, this.config)
         .then((res) => {
-          console.log('res.data: ' + res.data);
+          this.lists.push(res.data);
         })
-        .then(this.getLists())
         .catch((err) => {
           $log.log('Error in creating list: ' + err);
         });
@@ -41,17 +39,12 @@ module.exports = function(app) {
     this.removeList = function(list) {
       $log.log('removeList function');
       $http.delete(this.baseUrl + '/' + list._id, this.config)
-        .then((res) => {
-          console.log('res data: ' + res.data);
+        .then(() => {
+          this.lists.splice(this.lists.indexOf(list), 1);
         })
         .catch((err) => {
           console.log('error removing list: ' + err);
         });
     };
-
-    this.logList = function(list) {
-      this.lists.push(list);
-    };
-
   }]);
 };
