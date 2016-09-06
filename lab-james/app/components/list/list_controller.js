@@ -38,6 +38,17 @@ module.exports = function(app) {
         });
     };
 
+    this.removeList = function(list) {
+      $log.log('removeList function');
+      $http.delete(this.baseUrl + '/' + list._id, this.config)
+        .then((res) => {
+          console.log('res data: ' + res.data);
+        })
+        .catch((err) => {
+          console.log('error removing list: ' + err);
+        });
+    };
+
     this.logList = function(list) {
       this.lists.push(list);
     };

@@ -1,7 +1,5 @@
 <div ng-init="lc.getLists()">
-  <list-form-directive take-this="lc.createList(list)">
-    <h2> LIST DIRECTIVE </h2>
-  </list-form-directive>
+  <list-form-directive take-this="lc.createList(list)"></list-form-directive>
 </div>
 
 <h2> Lists: </h2>
@@ -11,8 +9,3 @@
     <button ng-click="lc.removeList(list)"> REMOVE </button>
   </li>
 </ul>
-
-<!-- <label for="list-name"> List Name: </label>
-  <input name="name" ng-model="lc.list.name">
-
-<button type="submit"> SUBMIT </button> -->
