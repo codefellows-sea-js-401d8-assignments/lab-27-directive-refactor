@@ -17,6 +17,7 @@ let noteRouter = module.exports = exports = new Router();
 // module logic
 noteRouter.post('/note', jsonParser, function(req, res, next){
   debug('POST /api/note');
+  console.log(req.body);
   let data = req.body;
   List.findById(data.listId)
     .then( list => {

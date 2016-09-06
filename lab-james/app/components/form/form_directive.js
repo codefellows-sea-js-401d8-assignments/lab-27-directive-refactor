@@ -7,7 +7,6 @@ module.exports = function(app) {
       controller: 'FormController',
       controllerAs: 'fc',
       scope: {
-        list: '=',
         takeThis: '&'
       }
     };

@@ -4,6 +4,7 @@ module.exports = function(app) {
   app.controller('ListController', ['$log', '$http', function($log, $http) {
     $log.log('list controller');
     this.baseUrl = `${__API_URL__}/api/list`;
+    this.noteBaseUrl = `${__API_URL__}/api/note`;
     this.config = {
       'Accept': 'Application/json',
       'Content-Type': 'Application/json'
@@ -45,6 +46,19 @@ module.exports = function(app) {
         .catch((err) => {
           console.log('error removing list: ' + err);
         });
+    };
+
+    this.createNote = function(list, note) {
+      $log.log('createNote function');
+      note.listId = list._id;
+      note.name = list.name;
+      $http.post(this.noteBaseUrl, note, this.config)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log('error creating note: ' + err.data);
+      });
     };
   }]);
 };

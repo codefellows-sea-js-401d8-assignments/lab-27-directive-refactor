@@ -7,7 +7,7 @@ module.exports = function(app) {
     this.takeThis = $scope.takeThis;
     this.save = () => {
       this.takeThis({list: this.list});
-      if (!$scope.list) this.list = null;
+      if(!$scope.list) this.list = null;
     };
   }]);
 };
