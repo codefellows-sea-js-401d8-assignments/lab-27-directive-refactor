@@ -49,9 +49,9 @@ function ListController($log, $http) {
   this.createList = function(list){
     $http.post(baseUrl, list, config)
       .then(res => {
-        $log.log('Success: ', res.data);
         this.lists.push(res.data);
         $log.log('this.lists: ', this.lists);
+        $log.log('Success: ', res.data);
       })
       .catch(err => {
         $log.log('Error: ', err);

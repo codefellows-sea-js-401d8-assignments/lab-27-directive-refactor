@@ -2,8 +2,10 @@
   novalidate data-ng-submit="ctrl.saveAndNull(ctrl.note)">
 
   <div class="form-group">
-    <label for="name" class="new-note"> New Note:  </label>
+    <label for="name" class="new-note"> Note Name:  </label>
     <input name="name" class="form-control" data-ng-model="ctrl.note.name">
+    <label for="content" class="new-note"> Note Content:  </label>
+    <input name="content" class="form-control" data-ng-model="ctrl.note.content">
   </div>
 
   <button type="submit" class="btn btn-default btn-primary"><i class="fa fa-check fa-lg"></i> {{ctrl.buttonText}}</button>

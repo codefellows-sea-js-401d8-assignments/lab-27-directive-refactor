@@ -10,7 +10,8 @@ module.exports = (app) => {
       scope: {
         baseUrl: '@',
         config: '=',
-        listId: '='
+        listId: '=',
+        list: '='
       }
     };
   });

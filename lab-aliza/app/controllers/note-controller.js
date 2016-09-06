@@ -47,10 +47,12 @@ function NoteController($log, $http) {
       });
   };
 
-  this.createNote = function(note){
-    console.log('note: ', note);
+  this.createNote = function(note, listId){
+    console.log('note before post: ', note);
+    console.log('listId before post: ', listId);
     $http.post(baseUrl, note, config)
       .then(res => {
+        note.listId = listId;
         $log.log('Success: ', res.data);
         note.addNote = false;
         this.notes.push(res.data);
