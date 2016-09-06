@@ -1,16 +1,16 @@
 'use strict';
 
 module.exports = (app) => {
-  app.directive('apFormDirective', function() {
+  app.directive('apNoteFormDirective', function() {
     return {
-      controller: 'FormController',
+      controller: 'NoteFormController',
       controllerAs: 'ctrl',
-      template: require('./form-template.html'),
+      template: require('./note-form-template.html'),
       transclude: true,
       scope: {
         buttonText: '@',
         save: '&',
-        list: '='
+        listId: '='
       }
     };
   });

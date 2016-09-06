@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (app) => {
-  app.controller('FormController', ['$scope', function($scope) {
+  app.controller('ListFormController', ['$scope', function($scope) {
     this.list = $scope.list || {};
     this.save = $scope.save;
     this.buttonText = $scope.buttonText;

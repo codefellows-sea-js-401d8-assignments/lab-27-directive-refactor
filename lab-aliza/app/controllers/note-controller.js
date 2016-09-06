@@ -15,6 +15,7 @@ function NoteController($log, $http) {
   };
 
   this.notes = [];
+
   this.getAllNotes = function() {
     $http.get(baseUrl, config)
       .then(res => {
@@ -47,6 +48,7 @@ function NoteController($log, $http) {
   };
 
   this.createNote = function(note){
+    console.log('note: ', note);
     $http.post(baseUrl, note, config)
       .then(res => {
         $log.log('Success: ', res.data);

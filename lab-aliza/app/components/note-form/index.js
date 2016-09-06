@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = function(app) {
-  require('./form-directive')(app);
+  require('./note-form-directive')(app);
 };
