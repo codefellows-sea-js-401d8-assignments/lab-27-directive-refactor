@@ -1,0 +1,21 @@
+<div>
+  <ul>
+    <li data-ng-repeat="note in listItemCtrl.list.notes">
+      <div>
+      {{note.name}}: {{note.content}}
+      <button data-ng-click="listItemCtrl.removeNote(note)">x</button>
+      </div>
+    </li>
+    <form class="form inline" novalidate data-ng-submit="listItemCtrl.addNote(listItemCtrl.note)">
+      <div class="form-group">
+    <h4>Create new Note for this list:</h4>
+        <label for="name">Name: </label>
+        <input type="text" name="name" data-ng-model="listItemCtrl.note.name">
+        <label for="content">Content: </label>
+        <input type="text" name="content" data-ng-model="listItemCtrl.note.content">
+        <button type="submit" class="btn btn-default">Create Note</button>
+      </div>
+    </form>
+      <!--<button data-ng-click="note.editing = true">edit note</button>-->
+  </ul>
+</div>

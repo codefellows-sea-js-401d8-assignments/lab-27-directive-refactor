@@ -6,7 +6,11 @@
     <script src="bundle.js"></script>
   </head>
   <body>
-    <h1>Note app</h1>
+    <h1>List & Note Manager</h1>
+    <main ds-list config="noteHttpConfig" base-url="{{noteListUrl}}list">
+      
+    </main>
+    <!--<h1>Note app</h1>
     <main ng-controller="ListController as listCtrl">
       <h3>Create List</h3>
       <form class="form-inline" novalidate ng-submit="listCtrl.createList(listCtrl.list)">
@@ -38,6 +42,6 @@
   <ol>
     <li ng-repeat="item in listCtrl.lists" value="{{item.name}}"> {{item.name}} </li>
   </ol>
-  </main>
+  </main>-->
   </body>
 </html>
