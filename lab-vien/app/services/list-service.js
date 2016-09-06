@@ -14,6 +14,7 @@ function ListService($log, $q, $http) {
   this.$log = $log;
   this.$q = $q;
   this.$http = $http;
+  this.lists = [];
   this.baseUrl = `${__API_URL__}/api/list`;
   this.httpConfig = {
     headers: {
@@ -31,6 +32,7 @@ ListService.prototype = {
     return this.$q((resolve, reject) => {
       this.$http.post(this.baseUrl, listData, this.httpConfig)
         .then(res => {
+          this.lists.push(res.data);
           this.$log.debug(`POST ${this.baseUrl} succeeded`);
           resolve(res.data);
         })
@@ -48,8 +50,8 @@ ListService.prototype = {
     return this.$q((resolve, reject) => {
       this.$http.get(this.baseUrl, this.httpConfig)
         .then(res => {
-          this.$log.debug(`GET ${this.baseUrl} succeeded`);
           this.lists = res.data;
+          this.$log.debug(`GET ${this.baseUrl} succeeded`);
           resolve(this.lists);
         })
         .catch(err => {
@@ -86,7 +88,11 @@ ListService.prototype = {
       const endpoint = `${this.baseUrl}/${listId}`;
 
       this.$http.delete(endpoint, this.httpConfig)
-        .then(res => {
+        .then((res) => {
+          this.lists.forEach((list, idx) => {
+            if (list._id === listId) this.lists.splice(idx, 1);
+          });
+
           this.$log.debug(`DELETE ${endpoint} succeeded`);
           resolve(res.data);
         })

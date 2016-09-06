@@ -1,3 +1,19 @@
-<div>
-  <h1>{{ctrl.appName}}</h1>
+<div ng-init="$ctrl.getLists()">
+  <h1>{{$ctrl.appName}}</h1>
+
+  <form class="form-inline novalidate"
+    ng-submit="$ctrl.createList(list)">
+
+    <div class="form-group">
+      <label for="name">Create List</label>
+      <input type="text" name="name" ng-model="list.name" required>
+    </div>
+    <button class="btn btn-default" type="submit">+</button>
+  </form>
+
+  <hr />
+
+  <div class="list-wrapper">
+    <na-list ng-repeat="list in $ctrl.lists" list="list"></na-list>
+  </div>
 </div>

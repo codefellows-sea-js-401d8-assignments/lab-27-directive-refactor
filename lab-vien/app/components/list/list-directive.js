@@ -5,8 +5,7 @@ module.exports = function(app) {
     controller: 'ListController',
     template: require('./list.html'),
     bindings: {
-      title: '@',
-      notes: '<',
+      list: '=',
     },
   });
 };
