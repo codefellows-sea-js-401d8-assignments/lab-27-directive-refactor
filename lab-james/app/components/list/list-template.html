@@ -1,2 +1,18 @@
-<h2> LIST TEMPLATE </h2>
-<button name="get-lists" ng-click="lc.getLists()"> Get Lists </button>
+<div ng-init="lc.getLists()">
+  <list-form-directive take-this="lc.createList(list)">
+    <h2> LIST DIRECTIVE </h2>
+  </list-form-directive>
+</div>
+
+<h2> Lists: </h2>
+<ul>
+  <li ng-repeat="list in lc.lists">
+    {{list.name}}
+    <button ng-click="lc.removeList(list)"> REMOVE </button>
+  </li>
+</ul>
+
+<!-- <label for="list-name"> List Name: </label>
+  <input name="name" ng-model="lc.list.name">
+
+<button type="submit"> SUBMIT </button> -->

@@ -5,7 +5,8 @@ module.exports = function(app) {
     return {
       template: require('./list-template.html'),
       controller: 'ListController',
-      controllerAs: 'lc'
+      controllerAs: 'lc',
+      bindToController: true
     };
   });
 };
