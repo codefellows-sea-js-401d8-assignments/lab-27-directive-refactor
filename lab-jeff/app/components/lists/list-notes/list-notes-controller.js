@@ -1,9 +1,21 @@
 'use strict';
 
 module.exports = (app) => {
-  app.controller('ListNotesController', ['$log', ListNotesController]);
+  app.controller('ListNotesController', ['$log', '$http', 'data', 'crud', ListNotesController]);
 };
 
-function ListNotesController($log) {
-  $log.log('List Notes Controller...');
+function ListNotesController($log, $http, data, crud) {
+  this.lists = data.lists;
+
+  let noteContent = {
+    name: 'test note',
+    content: 'test note content',
+    listId: this.lists[1]._id,
+  };
+
+  this.createNote = function() {
+    crud.createNote(noteContent).then(() => {
+      crud.getAllLists();
+    });
+  };
 }

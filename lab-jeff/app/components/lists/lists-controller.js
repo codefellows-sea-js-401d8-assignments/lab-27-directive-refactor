@@ -1,19 +1,11 @@
 'use strict';
 
 module.exports = (app) => {
-  app.controller('ListsController', ['$log', '$http', ListsController]);
+  app.controller('ListsController', ['$log', '$http', 'data', 'crud', ListsController]);
 };
 
-function ListsController($log, $http) {
-  this.lists = [];
-
-  let baseUrl = 'http://localhost:3000/api/list/';
-  let config = {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-  };
+function ListsController($log, $http, data, crud) {
+  this.lists = data.lists;
 
   this.deleteLocalList = function(listId){
     this.lists = this.lists.filter((list) => {
@@ -22,48 +14,28 @@ function ListsController($log, $http) {
   };
 
   this.getAllLists = function() {
-    $http.get(baseUrl, config)
-      .then((res) => {
-        $log.log('Success!', res.data);
-        res.data.forEach((list) => {
-          this.lists.push(list);
-        });
-      })
-      .catch((err) => {
-        return err;
+    crud.getAllLists().then((data) => {
+      data.forEach((list) => {
+        this.lists.push(list);
       });
+    });
   };
 
   this.deleteAllLists = function() {
-    $http.delete(baseUrl, config)
-      .then((res) => {
-        $log.log('Success!', res.data);
-        this.lists = [];
-      })
-      .catch((err) => {
-        return err;
-      });
-  };
-
-  this.createList = function(listName) {
-    $http.post(baseUrl, listName, config)
-      .then((res) => {
-        $log.log('Success!', res.data);
-        this.lists.push(res.data);
-      })
-      .catch((err) => {
-        return err;
-      });
+    crud.deleteAllLists().then(() => {
+      this.lists = [];
+    });
   };
 
   this.deleteList = function(listId) {
-    $http.delete(baseUrl + listId, config)
-      .then((res) => {
-        $log.log('Success', res.data);
-        this.deleteLocalList(listId);
-      })
-      .catch((err) => {
-        return err;
-      });
+    crud.deleteList(listId).then((data) => {
+      this.deleteLocalList(data._id);
+    });
+  };
+
+  this.createList = function(listName) {
+    crud.createList(listName).then((data) => {
+      this.lists.push(data);
+    });
   };
 }

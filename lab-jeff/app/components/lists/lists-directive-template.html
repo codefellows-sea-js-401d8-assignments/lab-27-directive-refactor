@@ -21,6 +21,11 @@
           X
         </button>
         <div class="listNote" jg-list-notes-directive></div>
+        <ul>
+          <li ng-repeat="note in list.notes">
+            {{ note.name }}
+          </li>
+        </ul>
       </span>
     </li>
   </ul>

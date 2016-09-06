@@ -6,6 +6,10 @@ module.exports = (app) => {
       controller: 'ListNotesController',
       controllerAs: 'listNotesCtrl',
       template: require('./list-notes-directive-template.html'),
+      bindToController: true,
+      scope: {
+        message: '@',
+      },
     };
   });
 };

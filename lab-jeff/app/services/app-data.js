@@ -1,9 +1,13 @@
 'use strict';
 
 module.exports = (app) => {
-  app.factory('AppData', ['$log', AppData]);
+  app.factory('data', ['$log', data]);
 };
 
-function AppData($log) {
-  $log.log('App Data service');
+function data($log) {
+  let data = {};
+  data.lists = [];
+  $log.log('Data from factory ', data.lists);
+
+  return data;
 }
