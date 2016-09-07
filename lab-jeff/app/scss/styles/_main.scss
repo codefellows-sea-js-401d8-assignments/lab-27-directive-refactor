@@ -1,0 +1,48 @@
+@import "_theme";
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: $app-light;
+}
+
+h1 {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-top: 0;
+  background-color: $app-secondary;
+  color: $app-light;
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+ul {
+  margin-top: 10px;
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+.list {
+  background-color: grey;
+  display: inline-block;
+  width: 250px;
+  border: 3px solid $app-secondary;
+  padding: 2px;
+  margin: 2px;
+  display: inline-block;
+  font-size: 1.5em;
+}
+
+.listButton {
+  float: right;
+}
+
+.listNote {
+  display: block;
+}
