@@ -5,10 +5,7 @@ module.exports = function(app) {
 
   function ListController($log, $http) {
     this.lists = [];
-    this.notes = [{
-      name: 'fake',
-      content: 'check out this super legit note!'
-    }];
+    this.notes = this.lists.notes;
 
     let baseUrl = `${__API_URL__}/api`;
     let config = {
@@ -73,7 +70,6 @@ module.exports = function(app) {
         $log.error('error', error);
       });
     };
-
 
 
   }

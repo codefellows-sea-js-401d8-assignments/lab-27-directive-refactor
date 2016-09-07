@@ -131,5 +131,14 @@ hr {
 
 .form, p {
   font-family: $app-font-serif;
+}
 
+label{
+  font-family: $app-font-sans;
+  font-weight: 200;
+  color: $app-light;
+}
+
+input{
+  color: $app-dark;
 }

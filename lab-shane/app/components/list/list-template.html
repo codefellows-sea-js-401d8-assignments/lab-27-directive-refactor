@@ -6,6 +6,7 @@
     </div>
     <div class="heading" >
       <h3>All Lists</h3>
+
     <div class="listing" data-ng-repeat="list in lc.lists">
       <a role="button" class="fa fa-times corner" ng-click="lc.deleteList(list)"></a>
         <span>
@@ -15,10 +16,14 @@
             {{list.name}}
             <a role="button" class="fa fa-pencil edit" ng-click="list.edit = true" ng-if="!list.edit"> Edit List</a>
           </h4>
-          <div class="form" data-sh-note ng-if="note.edit" button-command=" Save" borrow="nc.updateNote(note)" list="list">
-          </div>
-          <h6 ng-if="!note.edit">{{note.name}}</h6>
         </span>
+
+
+
+        <div class="listing" data-ng-repeat="note in list.notes">
+          <h6>{{note.name}}</h6>
+          
+        </div>
 
       </div>
 
