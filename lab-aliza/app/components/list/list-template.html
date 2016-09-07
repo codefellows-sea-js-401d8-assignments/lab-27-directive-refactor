@@ -6,11 +6,10 @@
     <li data-ng-repeat="list in listCtrl.lists">
       <span data-ng-if="!list.editing">
         <ul>
-          <h3>List Name: {{list.name}}</h3>
-          <li data-ng-repeat="note in list.notes">
-            <strong>Note Name:</strong> {{note.name}}
-            <br>
-            <strong>Note Content:</strong> {{note.content}}
+          <h3>{{list.name}}</h3>
+          <li data-ng-repeat="note in list.notes" class="notes">
+            <h4>{{note.name}}</h4>
+            <p>{{note.content}}</p>
           </li>
         </ul>
         <br>
