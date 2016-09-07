@@ -21,7 +21,7 @@ authRouter.post('/signup', jsonParser, (req, res, next) => {
 });
 
 authRouter.get('/signin', BasicHTTP, (req, res, next) => {
-  let authError = ErrorHandler(401, next, 'Bad authentication');
+  let authError = ErrorHandler(401, next, 'Authenticat Seyzz no!');
   User.findOne({'basic.email': req.auth.username})
     .then((user) => {
       if (!user) return authError(new Error('No Such User'));
