@@ -31,6 +31,23 @@ describe('testing list-controller', function() {
   });
 
   it('testing delete list', () => {
-    let baseUrl = 'http://localhost:3000/api/list';
+    let baseUrl = 'http://localhost:3000/api/list/24';
+    let reqData = {name: 'keiran', _id: 24, __v: 0, notes: []};
+    let headers = {'Accept': 'application/json'};
+    this.$httpBackend.expectDELETE(baseUrl, headers, reqData)
+    .respond(200, {name: 'keiran', _id: 24, __v: 0, notes: []});
+    this.listCtrl.deleteList(reqData);
+    this.$httpBackend.flush();
+  });
+
+  it('testing update list', () => {
+    let baseUrl ='http://localhost:3000/api/list/25';
+    this.listCtrl.lists = [{name:'keiran', _id:25, __v:0, notes: []}];
+    let reqData = {name:'beaton', _id:'25', __v:0, notes:[]};
+    let headers = {'Accept': 'application/json', 'Content-Type': 'application/json'};
+    this.$httpBackend.expectPUT(baseUrl, reqData, headers)
+    .respond(200, {name:'beaton', _id:25, __v:0, notes:[]});
+    this.listCtrl.updateList(reqData);
+    this.$httpBackend.flush();
   });
 });
