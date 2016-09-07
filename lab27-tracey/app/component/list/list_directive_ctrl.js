@@ -7,18 +7,10 @@ module.exports = (app)=>{
 function ListController($log, $http){
   this.lists = [];
 
-  this.getAll = function(){
-    $log.debug('listCtrl.getAll');
-    $http.get(this.baseUrl, this.config)
-      .then((res)=>{
-        this.lists = res.data;
-      }, (err)=>{
-        $log.error('Error!', err);
-      });
-  };
-  
   this.createList = function(list){
     console.log(list);
+    console.log(this.baseUrl);
+    console.log(this.config);
     $log.debug('listCtrl.createList');
     $http.post(this.baseUrl, list, this.config)
       .then((res)=>{
@@ -36,22 +28,17 @@ function ListController($log, $http){
     $http.get(this.baseUrl, this.config)
       .then((res) => {
         $log.log('Success!', res.data);
-        res.data.forEach((list) => {
-          this.lists.push(list);
-        });
+        this.lists = res.data;
       })
       .catch((err) => {
         $log.log('Error: ', err);
       });
   };
 
-  this.deleteList = function(id){
-    $http.delete(this.baseUrl + '/' + id, this.config)
+  this.deleteList = function(list){
+    $http.delete(this.baseUrl + '/' + list._id, this.config)
       .then((res)=>{
-        let index = this.lists.findIndex((item)=>{
-          return item._id === id;
-        });
-        this.lists.splice(index, 1);
+        this.lists.splice(this.lists.indexOf(list), 1);
         $log.log('Success!', res.data);
       })
       .catch((err)=>{

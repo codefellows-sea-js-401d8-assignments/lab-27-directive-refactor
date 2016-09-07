@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (app) =>{
+module.exports = function(app){
   app.directive('listDirective', function(){
     return {
       controller: 'ListController',

@@ -1,9 +1,9 @@
-<div ng-init="listCtrl.getAll()">
-  <form-directive button-text="Create List" save="listCtrl.createLIst(list)"></form-directive>
+<div ng-init="listCtrl.getLists()">
+  <form-directive button-text="Create List" save="listCtrl.createList(list)"></form-directive>
 
   <ul>
-    <li ng-repeat="item in listCtrl.lists"><button type="submit" ng-click="listCtrl.deleteList(item._id)">Remove</button>
-      {{item.name}}
+    <li ng-repeat="list in listCtrl.lists"><button type="submit" ng-click="listCtrl.deleteList(list)">Remove</button>
+      {{list.name}}
     </li>
   </ul>
 </div>

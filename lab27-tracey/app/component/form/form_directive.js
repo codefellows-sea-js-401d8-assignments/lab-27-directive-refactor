@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (app)=>{
+module.exports = function(app){
   app.directive('formDirective', function(){
     return {
       controller: 'FormDirectiveController',
