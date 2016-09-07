@@ -1,0 +1,20 @@
+<div ng-init="listCtrl.getAllLists()">
+  <h1>Create Lists Here:</h1>
+  <kb-list-form button-text="Create List" save="listCtrl.createList(list)">
+  </kb-list-form>
+  <h2>Lists:</h2>
+  <ul>
+    <li ng-repeat="list in listCtrl.lists">
+      <h3>{{list.name}}</h3>
+      <kb-note list="list" config="httpConfig" note-url="{{listCtrl.noteUrl}}"></kb-note>
+      <h3>Edit List Here:</h3>
+      <span ng-if="!list.editing">
+        <button class="btn btn-default" ng-click="listCtrl.deleteList(list)">Delete List</button>
+        <button class="btn btn-default" ng-click="list.editing = true">Edit</button>
+      </span>
+      <kb-list-form save="listCtrl.updateList(list)" button-text="Update List" list="list" ng-if="list.editing">
+        <button class="btn btn-default" ng-click="list.editing = false">Cancel</button>
+      </kb-list-form>
+    </li>
+  </ul>
+</div>
