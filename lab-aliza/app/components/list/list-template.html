@@ -8,28 +8,21 @@
         <ul>
           <h3>List Name: {{list.name}}</h3>
           <li data-ng-repeat="note in list.notes">
-            Note Name: {{note.name}}
+            <strong>Note Name:</strong> {{note.name}}
             <br>
-            Note Content: {{note.content}}
+            <strong>Note Content:</strong> {{note.content}}
           </li>
         </ul>
-
         <br>
-
         <button class="btn btn-default btn-primary" data-ng-click="note.addNote = true" ng-hide="note.addNote"><i class="fa fa-plus fa-lg"></i> Add Note</button>
-
         <div data-ap-note-directive data-list-id="list._id" data-list = "list" class="form-group" ng-show="note.addNote">
-
         </div>
-
         <button class="btn btn-default btn-warning" data-ng-click="list.editing = true"><i class="fa fa-pencil-square-o fa-lg"></i> Edit</button>
         <button class="btn btn-danger btn-default" data-ng-click="listCtrl.destroyList(list)"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
       </span>
-
       <div data-ap-list-form-directive save="listCtrl.updateList(list)" button-text="Update" list="list" data-ng-if="list.editing">
         <button class="btn btn-default btn-info" data-ng-click="list.editing = false"><i class="fa fa-remove fa-lg"></i> Cancel</button>
       </div>
-
     </li>
   </ul>
 </div>
