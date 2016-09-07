@@ -9,6 +9,7 @@ module.exports = function(app){
       transclude: true,
       scope: {
         buttonText: '@',
+        headingText: '@',
         save: '&',
         list: '='
       }
