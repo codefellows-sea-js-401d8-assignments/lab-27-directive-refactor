@@ -1,5 +1,5 @@
 <div data-ng-init="noteCtrl.getAllNotes()">
-  <data-ap-note-form-directive data-list-id="noteCtrl.listId" button-text="Submit" save="noteCtrl.createNote(note, noteCtrl.listId)">
+  <data-ap-note-form-directive data-list-id="noteCtrl.listId" button-text="Submit" save="noteCtrl.createNote(note)">
   </data-ap-note-form-directive>
   <ul>
     <li data-ng-repeat="note in noteCtrl.notes">

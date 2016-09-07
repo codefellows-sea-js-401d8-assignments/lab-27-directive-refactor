@@ -5,7 +5,15 @@
   <ul>
     <li data-ng-repeat="list in listCtrl.lists">
       <span data-ng-if="!list.editing">
-        {{list.name}}
+        <ul>
+          <h3>List Name: {{list.name}}</h3>
+          <li data-ng-repeat="note in list.notes">
+            Note Name: {{note.name}}
+            <br>
+            Note Content: {{note.content}}
+          </li>
+        </ul>
+
         <br>
 
         <button class="btn btn-default btn-primary" data-ng-click="note.addNote = true" ng-hide="note.addNote"><i class="fa fa-plus fa-lg"></i> Add Note</button>
