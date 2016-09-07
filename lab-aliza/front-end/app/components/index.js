@@ -5,4 +5,6 @@ module.exports = function(app){
   require('./note-form')(app);
   require('./list')(app);
   require('./note')(app);
+  require('./sign-in')(app);
+  require('./sign-up')(app);
 };
