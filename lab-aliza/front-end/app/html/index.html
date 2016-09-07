@@ -5,8 +5,22 @@
     <link rel="stylesheet" href="bundle.css">
     <script src="bundle.js"></script>
   </head>
+  <header>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/"><i class="logo fa fa-sticky-note"></i> Note App</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/notes"><i class="fa fa-sticky-note-o"></i> Notes</a></li>
+        <li><a href="#/signin"><i class="fa fa-sign-in"></i> Sign In</a></li>
+        <li><a href="#/signup"><i class="fa fa-sign-in"></i> Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
   <body>
-    <h1> Note Application </h1>
+    <h1>Note Application</h1>
     <main data-ng-view>
     </main>
   </body>

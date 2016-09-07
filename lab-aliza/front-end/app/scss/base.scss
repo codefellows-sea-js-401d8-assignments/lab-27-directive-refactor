@@ -8,7 +8,6 @@ html, body {
 }
 
 body {
-  margin-left: 20px;
   background-color: $app-dark;
   color: $app-dark;
   h1, h2 {
@@ -35,7 +34,7 @@ body {
     }
   }
 
-  ul {
+  .lists {
     padding-left: 0;
     li {
       border-radius: 5px;
@@ -49,8 +48,11 @@ body {
       }
     }
   }
-
   .notes {
     margin: 0;
+  }
+  .navbar {
+    background-color: $app-light;
+    border-radius: 0;
   }
 }

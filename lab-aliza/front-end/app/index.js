@@ -11,7 +11,7 @@ require('./controllers')(listApp);
 
 listApp.config(['$routeProvider', ($rp) => {
   $rp
-    .when('/', {
+    .when('/notes', {
       template: require('./html/notes.html')
     })
     .when('/signup', {
