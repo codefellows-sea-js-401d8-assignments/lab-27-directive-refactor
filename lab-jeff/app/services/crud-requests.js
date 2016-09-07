@@ -9,7 +9,7 @@ function crud($log, $http, $q) {
   let crud = {};
 
   let listUrl = 'http://localhost:3000/api/list/';
-  let noteUrl = 'http://localhost:3000/api/list';
+  let noteUrl = 'http://localhost:3000/api/note';
   let config = {
     headers: {
       'Accept': 'application/json',
@@ -70,7 +70,7 @@ function crud($log, $http, $q) {
   };
 
   crud.createNote = function(noteContent) {
-    $q(function(resolve, reject) {
+    return $q(function(resolve, reject) {
       $http.post(noteUrl, noteContent, config)
       .then((res) => {
         $log.log('Success!', res.data);

@@ -13,9 +13,10 @@ function ListNotesController($log, $http, data, crud) {
     listId: this.lists[1]._id,
   };
 
+
   this.createNote = function() {
     crud.createNote(noteContent).then(() => {
-      crud.getAllLists();
+      $log.log('Succesfully created note');
     });
   };
 }
