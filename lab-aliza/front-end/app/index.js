@@ -12,7 +12,7 @@ require('./controllers')(listApp);
 listApp.config(['$routeProvider', ($rp) => {
   $rp
     .when('/', {
-      template: require('./html/index.html')
+      template: require('./html/notes.html')
     })
     .when('/signup', {
       template: require('./html/sign-up.html')
