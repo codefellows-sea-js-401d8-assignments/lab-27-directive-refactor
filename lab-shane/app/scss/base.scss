@@ -1,0 +1,168 @@
+// vendor styles
+@import "vendor/normalize/_normalize.scss";
+@import "vendor/bootstrap/stylesheets/_bootstrap.scss";
+@import "vendor/font-awesome/scss/font-awesome.scss";
+@include normalize();
+// app styles
+// @import 'https://fonts.googleapis.com/css?family=Lora|Quicksand';
+@import "_theme";
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: $app-light;
+}
+
+body {
+  background-color: $app-default;
+}
+
+main{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.create{
+  width: 85%;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: $app-font-sans;
+}
+
+h4{
+  margin-bottom: 0em;
+}
+
+.line{
+  width: 95%;
+  margin: 0 auto;
+  border-top: .1px solid $app-dark-active;
+}
+
+.form-control{
+  font-size: 14pt;
+}
+
+.inline{
+  display: inline;
+}
+
+input{
+  margin: .5em;
+  font-size: 12pt;
+}
+
+.no-note-edit{
+
+}
+
+.edit{
+  margin-left: 1em;
+  font-size: 10pt;
+  color: $app-dark;
+}
+
+.edit:hover{
+  color: $app-dark-active;
+  text-decoration: none;
+}
+
+.edit:active{
+  color: $app-default;
+}
+
+.no-note-edit{
+  // margin-left: 1em;
+  // font-size: 10pt;
+  color: $app-light;
+  margin-bottom: 1em;
+}
+
+.no-note-edit:hover{
+  color: $app-light-hover;
+  text-decoration: none;
+}
+
+.no-note-edit:active{
+  color: $app-light-active;
+}
+
+.corner{
+  color: $app-default;
+  float: right;
+  top: .1em;
+}
+
+.corner:hover{
+  color: $app-dark-active;
+  text-decoration: none;
+}
+
+.corner:active{
+  color: $app-dark;
+}
+
+.brand {
+  font-size: 1em;
+}
+
+.navbar{
+  background-color: $app-light;
+  font-family: $app-font-sans;
+
+}
+
+hr {
+  border-top: 1px solid #8c8b8b;
+}
+
+.heading, .listing, .noting{
+  width: 85%;
+  padding: 1em;
+  margin: 0 auto;
+  box-shadow: inset 0.25px 0.25px 0.25px 0.25px $app-outline;
+
+}
+
+.heading{
+  margin-bottom: .5em;
+  background-color: $app-secondary;
+}
+
+.listing{
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: $app-tertiary;
+}
+
+.noting{
+  margin-top: .25em;
+  margin-bottom: 1em;
+  background-color: $app-note;
+}
+
+.btn{
+  color: $app-outline;
+  margin: .2em;
+  font-family: $app-font-sans;
+}
+
+.form, p {
+  font-family: $app-font-serif;
+}
+
+label{
+  font-family: $app-font-sans;
+  font-weight: 200;
+  color: $app-light;
+}
+
+input{
+  color: $app-dark;
+}

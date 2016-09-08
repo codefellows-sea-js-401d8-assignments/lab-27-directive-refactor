@@ -1,0 +1,6 @@
+<form class="form-inline" ng-submit="nfc.saveOrReset(nfc.note)" novalidate>
+  <input class="form-control" ng-model="nfc.note.name" type="text" placeholder="Note Name" name="note-name" ></input>
+  <button class="btn btn-default" ng-click="list.notes.edit = false" type="button" name="cancel">Cancel</button>
+  <button class="btn btn-default" type="submit" name="{{nfc.buttonCommand}}">{{nfc.buttonCommand}}</button>
+  <textarea class="form-control" ng-model="nfc.note.content" placeholder="Note Content" name="content" rows="3" cols="40"></textarea>
+</form>

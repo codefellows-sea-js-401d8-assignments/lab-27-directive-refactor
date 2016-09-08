@@ -1,0 +1,16 @@
+
+<h4 ng-if="!list.notes.length">
+  <a role="button" class="fa fa-plus no-note-edit" ng-click="list.notes.edit = true" ng-if="!list.notes.edit"> Add a Note!</a>
+</h4>
+
+  <h4 ng-if="list.notes.length">{{list.name.charAt(0).toUpperCase() + list.name.substring(1)}}'s Notes
+    <a role="button" class="fa fa-plus edit" ng-click="list.notes.edit = true" ng-if="!list.notes.edit"> Add a Note!</a>
+
+  </h4>
+
+<div class="noting" ng-repeat="note in list.notes">
+  <h5>{{note.name.charAt(0).toUpperCase() + note.name.substring(1)}}</h5>
+  <p>{{note.content}}</p>
+</div>
+
+  <div ng-if="list.notes.edit" class="form create" data-sh-note-form button-command="Create Note" borrow="nc.createNote(note)" list="list"></div>
