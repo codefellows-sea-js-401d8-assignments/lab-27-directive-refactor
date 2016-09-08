@@ -5,7 +5,7 @@
     <li ng-repeat="list in listCtrl.lists"><button type="submit" ng-click="listCtrl.deleteList(list)">Remove</button>
       {{list.name}}
       <ul ng-init="itemCtrl.getNotes()">
-        <li item-directive>
+        <li item-directive list="list" config="noteHttpConfig" save="itemCtrl.createNote(note)">
           <button type="submit">Add Note</button>
         </li>
       </ul>

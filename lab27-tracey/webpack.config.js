@@ -14,6 +14,7 @@ let plugins = [
 ];
 
 module.exports = {
+  devtool: 'source-map',
   entry: `${__dirname}/app/entry.js`,
   plugins: plugins,
   output: {

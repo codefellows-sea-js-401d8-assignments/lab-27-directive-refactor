@@ -3,19 +3,33 @@
 'use strict';
 
 module.exports = (app)=>{
-  app.controller('ItemDirectiveController', ['$log', '$http', ItemDirectiveController]);
+  app.controller('ItemDirectiveController', ['$scope', '$log', '$http', ItemDirectiveController]);
 };
 
-function ItemDirectiveController($log, $http){
+function ItemDirectiveController($scope, $log, $http){
   this.notes = [];
+  this.baseUrl = `${__API_URL__}/api/note`;
+
+  this.note = $scope.note || {};
+  this.save = $scope.save;
+  this.list = $scope.list;
+  console.log(this.save);
+  this.saveAndNull = ()=>{
+    this.save({note: this.note});
+    if(!$scope.note) this.note = null;
+  };
 
   this.createNote = function(note){
     console.log(note);
     console.log(this.baseUrl);
-    console.log(this.config);
+    console.log($scope.config);
     $log.debug('itemCtrl.createNote');
-    $http.post(this.baseUrl, note, this.config)
+    let newNote = note;
+    newNote.listId = this.list._id;
+    newNote.name = 'testName';
+    $http.post(this.baseUrl, newNote, this.config)
       .then((res)=>{
+
         $log.log('success!', res.data);
         this.notes.push(res.data);
         console.log(this.notes);

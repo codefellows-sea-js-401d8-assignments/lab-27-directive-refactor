@@ -6,11 +6,11 @@ module.exports = function(app){
       controller: 'ItemDirectiveController',
       controllerAs: 'itemCtrl',
       template: require('./item_directive.html'),
-      bindToController: true,
+      require: '^listDirective',
       scope: {
         baseUrl: '@',
         config: '=',
-        listId: '=',
+        save: '&',
         list: '='
       }
     };
