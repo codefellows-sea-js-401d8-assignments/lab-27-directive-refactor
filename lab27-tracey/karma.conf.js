@@ -19,8 +19,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/entry.js',
-      'test/*-test.js',
+      'test/index.js',
       'node_modules/angular-mocks/angular-mocks.js'
     ],
 
@@ -33,8 +32,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'app/entry.js': ['webpack'],
-      'test/*-test.js': ['babel']
+      'test/index.js': ['webpack']
     },
 
 
@@ -63,12 +61,12 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous
