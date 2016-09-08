@@ -1,8 +1,8 @@
 <div ng-init="listCtrl.getLists()">
-  <form-directive heading-text ="List Name" button-text="Create List" save="listCtrl.createList(list)"></form-directive>
+  <form-directive heading-text="List Name" button-text="Create List" save="listCtrl.createList(list)"></form-directive>
 
   <ul>
-    <li ng-repeat="list in listCtrl.lists"><button type="submit" ng-click="listCtrl.deleteList(list)">Remove</button>
+    <li ng-repeat="list in listCtrl.lists"><button type="submit" ng-click="listCtrl.deleteList(list)" class="btn btn-primary">Remove</button>
       {{list.name}}
       <ul ng-init="itemCtrl.getNotes()">
         <li item-directive list="list" config="noteHttpConfig" save="itemCtrl.createNote(note)">

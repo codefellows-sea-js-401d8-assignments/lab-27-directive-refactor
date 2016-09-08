@@ -1,6 +1,7 @@
 'use strict';
 
-require('angular').module('testApp', []);
+
+require('angular');
 require('angular-mocks');
 
 require('./list-test/list-test.js');

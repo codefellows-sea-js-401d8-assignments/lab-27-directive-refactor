@@ -9,7 +9,7 @@
   </form>
 
   <ul>
-    <li ng-repeat="note in itemCtrl.notes"><button type="submit" ng-click="itemCtrl.deleteNote(note)">Remove</button>
+    <li ng-repeat="note in itemCtrl.notes"><button type="submit" class="btn btn-primary" ng-click="itemCtrl.deleteNote(note)">Remove</button>
       {{note.content}}
     </li>
   </ul>

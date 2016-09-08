@@ -1,6 +1,5 @@
 // Karma configuration
-// Generated on Wed Aug 31 2016 10:55:02 GMT-0700 (PDT)
-
+// Generated on Thu Sep 08 2016 10:27:59 GMT-0700 (PDT)
 const webpackConfig = require('./webpack.config.js');
 webpackConfig.entry = {};
 
@@ -11,7 +10,6 @@ module.exports = function(config) {
     basePath: '',
 
     webpack: webpackConfig,
-
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
@@ -19,8 +17,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/index.js',
-      'node_modules/angular-mocks/angular-mocks.js'
+      'test/index.js'
     ],
 
 
@@ -56,12 +53,12 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
