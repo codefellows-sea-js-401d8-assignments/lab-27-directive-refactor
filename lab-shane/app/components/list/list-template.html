@@ -1,7 +1,7 @@
 <div ng-init="lc.getAllLists()">
     <div class="heading">
       <h1>Make a List!</h1>
-      <div class="form create" data-sh-form button-command="Create List" borrow="lc.createList(list)" list="list">
+      <div class="form create" data-sh-form button-command="Create List" borrow="lc.createList(list)">
     </div>
     </div>
     <div class="heading" >
@@ -19,11 +19,11 @@
         </span>
 
 
+        <!-- <div class="listing" data-ng-repeat="note in list.notes"> -->
+          <div data-sh-note list="list">
+          </div>
 
-        <div class="listing" data-ng-repeat="note in list.notes">
-          <h6>{{note.name}}</h6>
-          
-        </div>
+        <!-- </div> -->
 
       </div>
 

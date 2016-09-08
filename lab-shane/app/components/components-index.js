@@ -5,5 +5,5 @@ module.exports = function(app){
   require('./list/list-directive.js')(app);
   require('./note/note-directive.js')(app);
   require('./signin/signin-directive.js')(app);
-  require('./register/signup-directive.js')(app);
+  require('./signup/signup-directive.js')(app);
 };

@@ -7,10 +7,9 @@ module.exports = function(app) {
       template: require('./note-template.html'),
       controller: 'NoteController',
       controllerAs: 'nc',
-      bindToController: true,
+      // bindToController: true,
       scope: {
         list: '=',
-        borrow: '&',
         note: '='
       }
     };

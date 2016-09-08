@@ -5,7 +5,11 @@ module.exports = function(app) {
 
   function NoteController($log, $http, $scope) {
     this.list = $scope.list || {};
-    this.notes = $scope.list.notes;
+    this.note = $scope.note || {};
+    console.log('this.note: ', this.note);
+    console.log('this.list: ', this.list);
+
+
     let baseUrl = `${__API_URL__}/api`;
     let config = {
       headers: {

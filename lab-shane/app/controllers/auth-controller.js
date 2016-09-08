@@ -21,7 +21,7 @@ module.exports = function(app) {
         }
       })
         .then((res) => {
-          $http.defaults.headers.common['Authorization'] = 'Basic ' + res.data.token;
+          $http.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.token;
           $location.path('/');
         }, (err) => {
           console.log(err);
