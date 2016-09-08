@@ -1,7 +1,5 @@
 <form class="form-inline" ng-submit="fc.saveOrReset(fc.list)" novalidate>
-  <!-- <input placeholder="{{fc.placeHolder}}" class="form-control" name="list-name" ng-model="fc.list.name" ></input> -->
     <input placeholder="Name" class="form-control" name="list-name" ng-model="fc.list.name" ></input>
     <button type="submit" class="btn btn-default" ng-click="list.edit = false" ng-if="list.edit">Cancel</button>
     <button type="submit" class="btn btn-default">{{fc.buttonCommand}}</button>
-
 </form>

@@ -5,4 +5,5 @@ module.exports = function(app){
   require('./form-controller.js')(app);
   require('./note-controller.js')(app);
   require('./auth-controller.js')(app);
+  require('./note-form-controller.js')(app);
 };

@@ -7,10 +7,10 @@ module.exports = function(app) {
       template: require('./note-template.html'),
       controller: 'NoteController',
       controllerAs: 'nc',
-      // bindToController: true,
       scope: {
         list: '=',
-        note: '='
+        note: '=',
+        borrow: '&'
       }
     };
   });

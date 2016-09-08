@@ -12,8 +12,7 @@ module.exports = function(app) {
         list: '=',
         borrow: '&',
         buttonCommand: '@',
-        inputValue: '@',
-        placeHolder: '@'
+        inputValue: '@'
       }
     };
   });

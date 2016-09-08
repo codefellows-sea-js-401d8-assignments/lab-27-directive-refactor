@@ -6,4 +6,5 @@ module.exports = function(app){
   require('./note/note-directive.js')(app);
   require('./signin/signin-directive.js')(app);
   require('./signup/signup-directive.js')(app);
+  require('./note-form/note-form-directive.js')(app);
 };

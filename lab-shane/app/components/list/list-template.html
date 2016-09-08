@@ -1,31 +1,26 @@
 <div ng-init="lc.getAllLists()">
     <div class="heading">
       <h1>Make a List!</h1>
-      <div class="form create" data-sh-form button-command="Create List" borrow="lc.createList(list)">
-    </div>
+      <div class="form create" data-sh-form button-command="Create List" borrow="lc.createList(list)"></div>
     </div>
     <div class="heading" >
-      <h3>All Lists</h3>
+      <h2>All Lists</h2>
 
     <div class="listing" data-ng-repeat="list in lc.lists">
       <a role="button" class="fa fa-times corner" ng-click="lc.deleteList(list)"></a>
         <span>
-          <div class="form" data-sh-form ng-if="list.edit" button-command=" Save" borrow="lc.updateList(list)" list="list">
-          </div>
-          <h4 ng-if="!list.edit">
-            {{list.name}}
+          <div class="form" data-sh-form ng-if="list.edit" button-command=" Save" borrow="lc.updateList(list)" list="list"></div>
+          <h3 ng-if="!list.edit">
+            {{list.name.charAt(0).toUpperCase() + list.name.substring(1)}}
             <a role="button" class="fa fa-pencil edit" ng-click="list.edit = true" ng-if="!list.edit"> Edit List</a>
-          </h4>
+            <!-- <a ng-if="!list.notes.length" role="button" class="fa fa-plus edit" ng-click="list.edit = true" ng-if="!list.edit"> Add a Note!</a> -->
+
+          </h3>
+          <div ng-if="list.notes.length" class="line"></div>
         </span>
 
-
-        <!-- <div class="listing" data-ng-repeat="note in list.notes"> -->
-          <div data-sh-note list="list">
-          </div>
-
-        <!-- </div> -->
+          <div data-sh-note list="list"></div>
 
       </div>
-
     </div>
 </div>
