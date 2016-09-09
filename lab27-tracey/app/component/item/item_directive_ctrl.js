@@ -8,7 +8,7 @@ module.exports = (app)=>{
 
 function ItemDirectiveController($scope, $log, $http){
   this.notes = [];
-  this.baseUrl = `${__API_URL__}/api/note`;
+  this.baseUrl = `${__API_URL__}/api/notes`;
 
   this.note = $scope.note || {};
   this.save = $scope.save;
