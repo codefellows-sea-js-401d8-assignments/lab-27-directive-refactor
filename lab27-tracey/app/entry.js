@@ -14,8 +14,7 @@ lab27.run(['$rootScope', ($rs) =>{
   $rs.noteListUrl = $rs.baseUrl + '/api/list';
   $rs.noteHttpConfig = {
     headers: {
-      'Content-Type': 'application/json',
-      'Accept-Content': 'application/json'
+      'Content-Type': 'application/json'
     }
   };
 }]);
