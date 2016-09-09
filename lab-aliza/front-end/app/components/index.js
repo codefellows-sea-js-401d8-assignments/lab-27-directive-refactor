@@ -7,4 +7,5 @@ module.exports = function(app){
   require('./note')(app);
   require('./sign-in')(app);
   require('./sign-up')(app);
+  require('./sign-out')(app);
 };

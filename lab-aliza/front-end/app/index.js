@@ -4,10 +4,11 @@ require('!!file?name=[name].[ext]!./html/index.html');
 require('./scss/base.scss');
 
 const angular = require('angular');
-let listApp = angular.module('listApp', [require('angular-route')]);
+let listApp = angular.module('listApp', [require('angular-route'), require('angular-jwt')]);
 
 require('./components')(listApp);
 require('./controllers')(listApp);
+require('./services')(listApp);
 
 listApp.config(['$routeProvider', ($rp) => {
   $rp
@@ -21,6 +22,6 @@ listApp.config(['$routeProvider', ($rp) => {
       template: require('./html/sign-in.html')
     })
     .otherwise({
-      redirectTo: 'index'
+      redirectTo: 'notes'
     });
 }]);
