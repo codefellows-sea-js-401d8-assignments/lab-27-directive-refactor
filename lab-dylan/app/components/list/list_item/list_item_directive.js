@@ -9,7 +9,7 @@ module.exports = function(app) {
       require: '^dsList',
       scope: {
         list: '=',
-        baseUrl: '@',
+        save: '&',
         config: '='
       }
 

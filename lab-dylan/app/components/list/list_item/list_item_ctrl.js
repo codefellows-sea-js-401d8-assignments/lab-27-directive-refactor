@@ -1,11 +1,19 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('ListItemController', ['$scope', '$log', '$http', function($scope, $log, $http) {
+  app.controller('ListItemController', ['$scope', '$log', '$http', 'auth', function($scope, $log, $http, auth) {
     this.list = $scope.list || {};
+    this.config = $scope.config;
+    this.token = auth.getToken();
+    this.config.headers['Authorization'] = 'Bearer ' + this.token;
     this.baseUrl = 'http://localhost:3000/api/note';
     this.listId = this.list._id;
-    this.notes = $scope.list.notes;
+    this.save = $scope.save;
+    this.saveNote = () => {
+      this.save({note: this.note});
+      this.name = '';
+      this.content = '';
+    };
 
       // Note CRUD functions
     this.addNote = function(note) {
@@ -35,10 +43,10 @@ module.exports = function(app) {
   // Useless for this application but I figured why not since the routes already there
     this.getNotes = () => {
       $log.debug('listItemCtrl : getNotes()');
-      $http.get(`${this.baseUrl}`)
+      $http.get(`${this.baseUrl}`, this.config)
       .then(res => {
         $log.log('success', res.data);
-        this.notes = res.data;
+        this.list.notes = res.data;
       }, err => {
         $log.error('error', err);
       });
