@@ -1,6 +1,6 @@
-<div ng-init=listItemCtrl.list.getNotes()>
+<div ng-init="$ctrl.lists.getNotes()">
   <ul>
-    <li data-ng-repeat="note in listItemCtrl.list.notes track by $index">
+    <li data-ng-repeat="note in $ctrl.list.notes track by $index">
       <div>
       {{note.name}}: {{note.content}}
       <button data-ng-click="listItemCtrl.removeNote(note)">x</button>
