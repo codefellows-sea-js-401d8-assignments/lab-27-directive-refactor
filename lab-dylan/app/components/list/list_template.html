@@ -1,20 +1,20 @@
-<div data-ng-init="listCtrl.getLists()">
-  <ds-list-form data-button-text="Create List" save="listCtrl.addList(list)"></ds-list-form>
-
-  <h1>Current Lists: </h1>
-  <ul data-ng-repeat="list in listCtrl.lists track by $index">
+<div ng-init="listCtrl.getAllLists()">
+  <ds-list-form data-button-text="Create List" save="listCtrl.createList(list)"></ds-list-form>
+  <h1>Lists: </h1>
+    
+  <ul data-ng-repeat="list in listCtrl.lists" data-list="list">
       <h3 data-ng-if="!list.editing">{{list.name}}
-        <button class="btn btn-default" data-ng-click="listCtrl.removeList(list)">x</button>
+        <button class="btn btn-default" data-ng-click="listCtrl.deleteList(list)">x</button>
         <button class="btn btn-default" data-ng-click="list.editing = true">Edit</button>
       </h3>
       <ds-list-form save="listCtrl.updateList(list)" button-text="Rename list" list="list" ng-if="list.editing">
         <button class="btn btn-default" data-ng-click="list.editing = false">Cancel</button>
       </ds-list-form>
       <p>Notes:</p>
-        <!--<li data-ng-repeat="note in list.notes" data-list="list">-->
-          <ds-list-item data-list="list" config="noteHttpConfig" save="listCtrl.addNote(note)"></ds-list-item>
-        <!--</li>-->
-      <button class="btn btn-default" data-ng-click="listCtrl.addNote(note)" base-url="{{baseUrl}}/api/note"></button>
+      <ds-note remove="listCtrl.removeNote(note)" ng-repeat="note in list.notes" note="note" listId="{{list._id}}"></ds-note>
+      
+      <!--<button class="btn btn-default" data-ng-click="$ctrl.addNote(note)">+</button>-->
+      <ds-note-form save="listCtrl.addNote(note)" list="list" config="listCtrl.config"></ds-note-form>
       
   </ul>
 </div>

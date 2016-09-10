@@ -1,17 +1,17 @@
 'use strict';
 
 module.exports = function(app) {
-  app.factory('auth', ['$window', 'jwtHelper', '$location', function($window, jwt, $location) {
+  app.factory('auth', ['$window', 'jwtHelper', '$location', function($window, jwtHelper, $location) {
     return {
       currentUser: {},
-      getToken: function(opts) {
-        opts = opts || {};
-        if (this.token) return this.token;
+      getToken: function(options) {
+        options = options || {};
+        if (this.token) return this.token; 
         if ($window.localStorage.token) return this.setToken($window.localStorage.token);
-        if (!opts.noRedirect) $location.path('/signup');
+        if (!options.noRedirect) $location.path('/signup');
       },
       setToken: function(token) {
-        $window.localStorage.token = token;
+        $window.localStorage.token = token;  
         this.token = token;
         this.getUser();
         return token;
@@ -19,15 +19,15 @@ module.exports = function(app) {
       getUser: function() {
         let token = this.getToken();
         if (!token) return;
-        let deciphered = jwt.decodeToken(token);
-        this.currentUser.username = deciphered.username;
+        let decoded = jwtHelper.decodeToken(token);
+        this.currentUser.username = decoded.username;
         return this.currentUser;
       },
       logOut: function() {
         $window.localStorage.token = '';
         this.currentUser = '';
         this.token = '';
-        $location.path('/signin');
+        $location.path('signin');
       }
     };
   }]);

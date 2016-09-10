@@ -1,21 +1,17 @@
 'use strict';
 
-
 module.exports = function(app) {
-  app.controller('AuthController', ['$http', '$location', '$window', 'auth', '$log', function($http, $location, $window, auth, $log) {
+  app.controller('AuthController', ['$http', '$location', '$window', 'auth', function($http, $location, $window, auth) {
     if (auth.getToken({noRedirect: true})) $location.path('/notes');
-    
+
     this.signup = function(user) {
       $http.post(this.baseUrl + '/api/signup', user)
-      .then(res => {
-        $log.log('success!', res.data);
-        auth.setToken(res.data.token);
-        $location.path('/notes');
-      })
-      .catch( err => {
-        $log.error('error!', err);
-        alert('Invalid data');
-      });
+        .then((res) => {
+          auth.setToken(res.data.token);
+          $location.path('/notes');
+        }, (err) => {
+          console.log(err);
+        });
     };
 
     this.signin = function(user) {
@@ -23,14 +19,13 @@ module.exports = function(app) {
         headers: {
           'Authorization': 'Basic ' + $window.btoa(user.username + ':' + user.password)
         }
-      }).then(res => {
-        $log.log('success', res.data);
-        auth.setToken(res.data.token);
-        $location.path('/notes');
-      }, err => {
-        $log.log('error', err);
-        console.log('error ' + err.status);
-      });
+      })
+        .then((res) => {
+          auth.setToken(res.data.token);
+          $location.path('/notes');
+        }, (err) => {
+          console.log(err);
+        })
     };
 
     this.getUser = auth.getUser.bind(auth);

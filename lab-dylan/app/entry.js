@@ -12,8 +12,6 @@ require('./components')(listApp);
 
 listApp.run(['$rootScope', ($rs) => {
   $rs.baseUrl = `${__API_URL__}`;
-  $rs.listUrl = `${__API_URL__}/api/list`;
-  $rs.noteUrl = `${__API_URL__}/api/note`;
   $rs.noteHttpConfig = {
     headers: {
       'Content-Type': 'application/json',
@@ -34,7 +32,7 @@ listApp.config(['$routeProvider', ($rp) => {
       template: require('./html/sign_in.html')
     })
     .otherwise({
-      redirectTo: '/notes'
+      redirectTo: 'notes'
     });
 }]);
 

@@ -1,11 +1,13 @@
 'use strict';
 
 module.exports = function(app) {
-  app.component('list', function() {
+  app.directive('dsList', function() {
     return {
       controller: 'ListController',
+      controllerAs: 'listCtrl',
       template: require('./list_template.html'),
-      bindings: {
+      bindToController: true,
+      scope: {
         baseUrl: '@',
         config: '='
       }

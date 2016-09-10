@@ -5,9 +5,9 @@ module.exports = function(app) {
 };
 
 function ListController($log, $http, auth) {
-  this.lists = [];
   this.token = auth.getToken();
   this.config.headers['Authorization'] = 'Bearer ' + this.token;
+  this.lists = [];
   this.noteUrl = `${this.baseUrl}/api/note`;
   this.listUrl = `${this.baseUrl}/api/list`;
   this.currentNote;
