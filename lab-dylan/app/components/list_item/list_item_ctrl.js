@@ -17,7 +17,7 @@ module.exports = function(app) {
 
       // Note CRUD functions
     this.addNote = function(note) {
-      $log.debug('listItemCtrl : addNote()');
+      $log.debug('listItemCtrl : addNote()', + note);
       let newNote = note;
       newNote.listId = this.listId;
       $http.post(`${this.baseUrl}`, newNote, this.config)
