@@ -1,0 +1,58 @@
+@import "./vendor/bootstrap/stylesheets/_bootstrap.scss";
+@import "./vendor/font-awesome-4.6.3/scss/font-awesome.scss";
+@import "./lib/_theme";
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: $app-dark;
+  color: $app-dark;
+  h1, h2 {
+    padding-top: 20px;
+    text-align: center;
+    color: white;
+  }
+
+  form {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .form-inline {
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: $app-light;
+    list-style-type: none;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    button {
+      margin: 10px;
+    }
+  }
+
+  .lists {
+    padding-left: 0;
+    li {
+      border-radius: 5px;
+      background-color: $app-light;
+      list-style-type: none;
+      width: 80%;
+      margin: 10px auto;
+      padding: 15px;
+      button {
+        margin: 10px;
+      }
+    }
+  }
+  .notes {
+    margin: 0;
+  }
+  .navbar {
+    background-color: $app-light;
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,27 @@
+<div data-ng-init="listCtrl.getAllLists()">
+  <data-ap-list-form-directive button-text="Submit" save="listCtrl.createList(list)">
+  </data-ap-list-form-directive>
+  <h2>Saved Notes: </h2>
+  <ul class="lists">
+    <li data-ng-repeat="list in listCtrl.lists">
+      <span data-ng-if="!list.editing">
+        <ul>
+          <h3>{{list.name}}</h3>
+          <li data-ng-repeat="note in list.notes" class="notes">
+            <h4>{{note.name}}</h4>
+            <p>{{note.content}}</p>
+          </li>
+        </ul>
+        <br>
+        <button class="btn btn-default btn-primary" data-ng-click="note.addNote = true" ng-hide="note.addNote"><i class="fa fa-plus fa-lg"></i> Add Note</button>
+        <div data-ap-note-directive data-list-id="list._id" data-list = "list" class="form-group" ng-show="note.addNote">
+        </div>
+        <button class="btn btn-default btn-warning" data-ng-click="list.editing = true"><i class="fa fa-pencil-square-o fa-lg"></i> Edit</button>
+        <button class="btn btn-danger btn-default" data-ng-click="listCtrl.destroyList(list)"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
+      </span>
+      <div data-ap-list-form-directive save="listCtrl.updateList(list)" button-text="Update" list="list" data-ng-if="list.editing">
+        <button class="btn btn-default btn-info" data-ng-click="list.editing = false"><i class="fa fa-remove fa-lg"></i> Cancel</button>
+      </div>
+    </li>
+  </ul>
+</div>

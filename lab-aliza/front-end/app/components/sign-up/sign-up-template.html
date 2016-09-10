@@ -1,0 +1,10 @@
+<div class="form-inline">
+  <h3>Sign Up</h3>
+<form name="signup" data-ng-submit="$ctrl.signup($ctrl.user)">
+  <label for="email">Email: </label>
+  <input type="text" required data-ng-model="$ctrl.user.email">
+  <label for="password">Password: </label>
+  <input type="password" required data-ng-model="$ctrl.user.password">
+  <button class="btn btn-default" type="submit">Submit</button>
+</form>
+</div>
