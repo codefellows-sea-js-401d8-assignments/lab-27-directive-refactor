@@ -1,0 +1,42 @@
+<div>
+  <div>
+    <h3>{{$ctrl.list.name}}</h3>
+
+    <button class="btn btn-default" ng-if="!$ctrl.editing" type="button" ng-click="$ctrl.toggleEdit()">Edit</button>
+
+    <form class="form-inline novalidate" ng-if="$ctrl.editing" ng-submit="$ctrl.updateList(list); $ctrl.toggleEdit()">
+      <div class="form-group">
+        <label for="name">List Name</label>
+        <input type="text" name="name" ng-model="list.name" required>
+        <button class="btn btn-default" type="submit">Update</button>
+        <button class="btn btn-default" type="button" ng-click="$ctrl.deleteList()">x</button>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <form class="form-inline novalidate"
+      ng-submit="$ctrl.createNote(note)">
+
+      <div class="form-group">
+        <label for="name">Note Name</label>
+        <input type="text" name="name" ng-model="note.name" required>
+      </div>
+      <div class="form-group">
+        <label for="content">Note Content</label>
+        <input type="text" name="content" ng-model="note.content" required>
+      </div>
+      <button class="btn btn-default" type="submit">+</button>
+    </form>
+
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="note in $ctrl.list.notes">
+        <na-list-note
+        note="note"
+        update-note="$ctrl.updateNote(noteId, noteData)"
+        delete-note="$ctrl.deleteNote(noteId)">
+        </na-list-note>
+      </li>
+    </ul>
+  </div>
+</div>
