@@ -1,0 +1,7 @@
+<form name="signup" ng-submit="$ctrl.signup($ctrl.user)">
+  <label for="email">Email</label>
+  <input name="email" type="text" ng-model="$ctrl.user.email" />
+  <label for="password"></label>
+  <input name="password" type="password" ng-model="$ctrl.user.password" />
+  <button class="btn btn-default" type="submit">Create User</button>
+</form>

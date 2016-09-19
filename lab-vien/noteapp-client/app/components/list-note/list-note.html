@@ -2,7 +2,9 @@
   <h4>{{$ctrl.note.name}}</h4>
   <p>{{$ctrl.note.content}}</p>
 
-  <form class="form-inline novalidate" ng-submit="$ctrl.updateNote({noteId: $ctrl.note._id, noteData: note})">
+  <button class="btn btn-default" type="button" ng-if="!$ctrl.editing" ng-click="$ctrl.toggleEdit()">Edit</button>
+
+  <form class="form-inline novalidate" ng-if="$ctrl.editing" ng-submit="$ctrl.updateNote({noteId: $ctrl.note._id, noteData: note}); $ctrl.toggleEdit()">
     <div class="form-group">
       <label for="name">Note Name</label>
       <input type="text" name="name" ng-model="note.name" required>
@@ -12,7 +14,8 @@
       <input type="text" name="content" ng-model="note.content" required>
     </div>
     <button class="btn btn-default" type="submit">Update</button>
-    <button class="btn btn-default" ng-click="$ctrl.deleteNote({noteId: $ctrl.note._id})">x</button>
+    <button class="btn btn-default" type="button" ng-click="$ctrl.deleteNote({noteId: $ctrl.note._id})">x</button>
   </form>
+
 
 </div>

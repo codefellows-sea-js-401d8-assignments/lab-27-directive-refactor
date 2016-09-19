@@ -7,5 +7,5 @@ const angular = require('angular');
 const noteApp = angular.module('noteApp', []);
 
 require('./services')(noteApp);
-// require('./controllers')(noteApp);
+require('./controllers')(noteApp);
 require('./components')(noteApp);

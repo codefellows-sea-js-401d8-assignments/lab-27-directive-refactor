@@ -5,7 +5,11 @@ module.exports = function(app) {
 };
 
 function ListNoteController() {
+  this.editing = false;
 }
 
 ListNoteController.prototype = {
+  toggleEdit: function() {
+    this.editing = (this.editing) ? false : true;
+  },
 };

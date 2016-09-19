@@ -8,9 +8,14 @@ function ListController($log, listService, noteService) {
   this.$log = $log;
   this.listService = listService;
   this.noteService = noteService;
+  this.editing = false;
 }
 
 ListController.prototype = {
+  toggleEdit: function() {
+    this.editing = (this.editing) ? false : true;
+  },
+
   updateList: function(listData) {
     this.listService.updateList(this.list._id, listData)
       // .then(this.list.name = listData.name)
