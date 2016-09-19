@@ -14,6 +14,7 @@ const cors = require('cors')
 const handleError = require('./lib/handle-error');
 const listRouter = require('./router/list-router');
 const noteRouter = require('./router/note-router');
+const authRouter = require('./router/auth_router');
 
 // module constants
 const app = express();
@@ -29,6 +30,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 // express routes
+app.use('/api', authRouter);
 app.use('/api', listRouter);
 app.use('/api', noteRouter);
 
