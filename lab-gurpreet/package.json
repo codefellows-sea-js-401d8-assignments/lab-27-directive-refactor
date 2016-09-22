@@ -5,8 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
-    "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "node ./node_modules/eslint/bin/eslint.js app/*.js",
+    "test": "karma start"
   },
   "keywords": [],
   "author": "",
