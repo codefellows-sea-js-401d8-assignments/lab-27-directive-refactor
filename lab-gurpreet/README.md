@@ -12,5 +12,4 @@ cd lab-gurpreet
 webpack
 Start application: npm run watch
 In browser, open localhost:8080 and use app
-Testing: karma start
 Lint: npm run lint
