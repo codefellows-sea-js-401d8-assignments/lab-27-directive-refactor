@@ -1,0 +1,60 @@
+// vendor styles
+@import "vendor/normalize/_normalize.scss";
+@import "vendor/bootstrap/stylesheets/_bootstrap.scss";
+@import "vendor/font-awesome/scss/font-awesome.scss";
+@include normalize();
+// app styles
+@import "_theme";
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin-left: 20px;
+  background-color: $app-dark;
+  color: $app-dark;
+  h1, h2 {
+    padding-top: 20px;
+    text-align: center;
+    color: white;
+  }
+
+  form {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .form-inline {
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: $app-light;
+    list-style-type: none;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    button {
+      margin: 10px;
+    }
+  }
+
+  ul {
+    padding-left: 0;
+    li {
+      border-radius: 5px;
+      background-color: $app-light;
+      list-style-type: none;
+      width: 80%;
+      margin: 10px auto;
+      padding: 15px;
+      button {
+        margin: 10px;
+      }
+    }
+  }
+
+  .notes {
+    margin: 0;
+  }
+}
