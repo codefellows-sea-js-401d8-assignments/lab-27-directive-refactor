@@ -6,7 +6,7 @@ module.exports = function(app) {
     this.note = {};
     this.remove = $scope.remove;
     this.removeNote = () => {
-      this.note.listId = this.listId;
+      // this.note.listId = this.list._id;
       this.remove({note: this.note});
     };
 
@@ -14,14 +14,14 @@ module.exports = function(app) {
 
   app.directive('dsNote', function() {
     return {
-      controller: 'NoteController',
+      controller: 'ListItemController',
       controllerAs: 'noteCtrl',
       template: require('./list_item_template.html'),
       // bindToController: true,
       scope: {
         remove: '&',
         note: '=',
-        listId: '@'
+        list: '='
       }
 
     };

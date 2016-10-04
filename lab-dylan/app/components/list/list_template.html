@@ -10,11 +10,11 @@
       <ds-list-form save="listCtrl.updateList(list)" button-text="Rename list" list="list" ng-if="list.editing">
         <button class="btn btn-default" data-ng-click="list.editing = false">Cancel</button>
       </ds-list-form>
-      <p>Notes:</p>
-      <ds-note remove="listCtrl.removeNote(note)" ng-repeat="note in list.notes" note="note" listId="{{list._id}}"></ds-note>
+      <!--<p>Notes:</p>-->
+      <!--<ds-note remove="listCtrl.removeNote(note)" ng-repeat="note in list.notes" note="note" listId="{{list._id}}"></ds-note>-->
       
       <!--<button class="btn btn-default" data-ng-click="$ctrl.addNote(note)">+</button>-->
-      <ds-note-form save="listCtrl.addNote(note)" list="list" config="listCtrl.config"></ds-note-form>
+      <!--<ds-note-form save="listCtrl.addNote(note)" list="list"" config="listCtrl.config"></ds-note-form>-->
       
   </ul>
 </div>

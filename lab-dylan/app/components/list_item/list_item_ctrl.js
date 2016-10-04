@@ -4,10 +4,10 @@ module.exports = function(app) {
   app.controller('ListItemController', ['$scope', '$log', '$http', 'auth', function($scope, $log, $http, auth) {
     this.list = $scope.list || {};
     this.config = $scope.config;
-    this.token = auth.getToken();
-    this.config.headers['Authorization'] = 'Bearer ' + this.token;
+    // this.token = auth.getToken();
+    // this.config.headers['Authorization'] = 'Bearer ' + this.token;
     this.baseUrl = 'http://localhost:3000/api/note';
-    this.listId = this.list._id;
+    // this.listId = this.list._id;
     this.save = $scope.save;
     this.saveNote = () => {
       this.save({note: this.note});

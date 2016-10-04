@@ -53,11 +53,15 @@ module.exports = (app) => {
     this.addNote = function(note) {
       $log.debug('listItemCtrl : addNote()');
       let newNote = note;
-      newNote.listId = this.listId;
+      // newNote.listId = this.list._id;
+      console.log(this.lists);
       $http.post(`${this.noteUrl}`, newNote, this.config)
       .then(res => {
         $log.log('success', res.data);
-        this.list.notes.push(res.data);
+        let listIndex = this.getListIndex(res.data.listId);
+        console.log('res.listId: ' + res.data.listId);
+        console.log('listIndex: ' + listIndex);
+        this.lists[listIndex].notes.push(res.data);
       }, err => {
         $log.error('error', err);
       });
@@ -72,6 +76,10 @@ module.exports = (app) => {
       }, err => {
         $log.error('error', err);
       }); 
+    };
+
+    this.getListIndex = function(listId) {
+      return this.lists.indexOf({_id: listId});
     };
 
   // Useless for this application but I figured why not since the routes already there

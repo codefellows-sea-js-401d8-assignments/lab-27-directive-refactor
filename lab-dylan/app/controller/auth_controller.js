@@ -25,9 +25,11 @@ module.exports = function(app) {
           $location.path('/notes');
         }, (err) => {
           console.log(err);
-        })
+        });
     };
-
+    // this.getUser = function() {
+    //   auth.getUser
+    // }
     this.getUser = auth.getUser.bind(auth);
     this.logOut = auth.logOut.bind(auth);
     this.currentUser = auth.currentUser;

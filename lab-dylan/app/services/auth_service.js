@@ -17,11 +17,11 @@ module.exports = function(app) {
         return token;
       },
       getUser: function() {
-        let token = this.getToken();
+        let token = this.getToken({noRedirect: true});
         if (!token) return;
         let decoded = jwtHelper.decodeToken(token);
         this.currentUser.username = decoded.username;
-        return this.currentUser;
+        return this.currentUser.username;
       },
       logOut: function() {
         $window.localStorage.token = '';
