@@ -1,0 +1,10 @@
+<div>
+  <ul>
+    <li data-ng-repeat="note in noteCtrl.list.notes">
+      <div>
+      {{note.name}}: {{note.content}}
+      <button data-ng-click="noteCtrl.removeNote(note)">x</button>
+      </div>
+    </li>
+  </ul>
+</div>
